@@ -1,29 +1,81 @@
 /* app css stylesheet */
 
+/* background */
 body {
   background: #222;
 }
-
 .center {
-  margin: 0px auto;
-  max-width: 1000px;
+  margin: 0 auto;
 }
-
 .backdrop {
+  max-width: 1000px;
   background: #fefefe;
   position: relative;
   min-height: 100%;
   text-align: center;
 }
 
+
+/* title bar */
 .title {
   font-size: 3em;
+  margin-bottom: 0;
 }
-
 .logo {
   position: absolute;
   top: 0;
   left: 0;
+}
+.name {
+  margin: 10px auto;  
+}
+.links {
+  margin: 0 auto;
+  padding-left: 60px;
+  text-align:left;
+  display: inline-block;
+}
+.links > div {
+  display: inline-block;
+}
+.links1 {
+  width: 200px;
+}
+.links2 {
+  width: 250px;
+}
+.link {
+  padding-top: 5px;
+}
+
+
+/* projects */
+.projects {
+  padding: 20px;
+}
+.projects > div {
+  margin: 30px 0;
+}
+.project {
+  background: #666;
+  margin: 10px;
+  border-radius: 10px;
+}
+.project-image {
+  border-radius: 10px;
+}
+.projects-featured .project-image {
+  /* golden ratio at max width */
+  height: 284px;
+  width: 100%;
+}
+.projects-main .project-image {
+  /* golden ratio at max width */
+  height: 284px;
+  width: 100%;
+}
+.project span {
+  padding: 10px;
 }
 
 /*
