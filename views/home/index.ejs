@@ -1,15 +1,5 @@
-<!--<ul class="menu">
-  <li><a href="#/view1">view1</a></li>
-  <li><a href="#/view2">view2</a></li>
-</ul>
-
-<div ng-view></div>
-
-<div>Angular seed app: v<span app-version></span></div>
--->
-
 <div class='center backdrop'>
-  <div class='menu'>
+  <div class='menu center-color'>
     <img class='pure-hidden-phone logo' alt='Z' src='https://gravatar.com/avatar/55dbeca986f875e1d1cb4d51e2fc42e4?s=150'>
     <h1 class='title'>Zolmeister</h1>
     <h3 class='name'>Zoli Kahan</h3>
@@ -36,41 +26,7 @@
       </div>
     </div>
   </div>
-  <div class="example-animate-container">
-        <div ng-view class="view-example"></div>
-      </div>
-  <!--<div ng-view ng-class="fader-animation"></div>-->
-  <style>
-.example-animate-container {
-  position:relative;
-  overflow:hidden;
-}
- 
-.view-example.ng-enter, .view-example.ng-leave {
-  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
-  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
-  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
-  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
- 
- 
-  position:absolute;
-}
- 
-.example-animate-container {
-  position:relative;
-  height:1000px;
-}
- 
-.view-example.ng-enter {
-  left:100%;
-}
-.view-example.ng-enter.ng-enter-active {
-  left:0;
-}
- 
-.view-example.ng-leave { }
-.view-example.ng-leave.ng-leave-active {
-  left:-100%;
-}
-</style>
+  
+    <div ng-view class="flipper center-color"
+         ng-class='{flip_left: pageTurn === "left" , flip_right: pageTurn === "right" }'></div>
 </div>

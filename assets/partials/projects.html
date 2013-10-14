@@ -1,34 +1,30 @@
-<a  href='#/project/testTitle'>TITELE</a>
-<a  href='#/'>HOME</a><br>
-NOT A PROJECT VIEWWWWWWWWW
-
 <div class='projects'>
   <div class='projects-featured'>
-    <div class='project' ng-repeat='project in projects | filter:{displayType: "featured"}'>
+    <div class='project' auto-scroll-to="{{fromProject === project.title}}" ng-repeat='project in projects | filter:{displayType: "featured"}'>
       <img class='project-image' src='/img/projects/1-wide.png'>
-      <a class='overlay' href='#/?view={{ project.title }}'>
+      <div class='overlay' ng-click='go("/project/{{ project.title }}", "{{ project.title }}")'>
         <div class='project-title'>{{ project.title }}</div>
         <div class='project-desc'>{{ project.desc }}</div>
-      </a>
+      </div>
     </div>
   </div>
   <div class='pure-g-r projects-main'>
-    <div class='pure-u-1-2' ng-repeat='project in projects | filter:{displayType: "main"}'>
+    <div class='pure-u-1-2' auto-scroll-to="{{fromProject === project.title}}" ng-repeat='project in projects | filter:{displayType: "main"}'>
       <div class='project'>
         <img class='project-image' src='/img/projects/1.png'>
-        <a class='overlay' href='#/?view={{ project.title }}'>
+        <div class='overlay' ng-click='go("/project/{{ project.title }}", "{{ project.title }}")'>
           <div class='project-title'>{{ project.title }}</div>
           <div class='project-desc'>{{ project.desc }}</div>
-        </a>
+        </div>
       </div>
     </div>
   </div>
   <div class='pure-g-r projects-other'>
-    <div class='pure-u-1-3' ng-repeat='project in projects | filter:{displayType: "other"}'>
-      <a class='project' href='#/?view={{ project.title }}'>
+    <div class='pure-u-1-3' auto-scroll-to="{{fromProject === project.title}}" ng-repeat='project in projects | filter:{displayType: "other"}'>
+      <div class='project' ng-click='go("/project/{{ project.title }}", "{{ project.title }}")'>
         <div class='project-title'>{{ project.title }}</div>
         <div class='project-desc'>{{ project.desc }}</div>
-      </a>
+      </div>
     </div>
   </div>
 </div>

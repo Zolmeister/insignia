@@ -1,10 +1,5 @@
 /* app css stylesheet */
 
-/* global */
-a {
-  text-decoration: none;
-}
-
 /* background */
 body {
   background: #2c3e50;
@@ -14,10 +9,13 @@ body {
 }
 .backdrop {
   max-width: 1000px;
-  background: #ecf0f1;
   position: relative;
   min-height: 100%;
   text-align: center;
+  margin-bottom: 20px;
+}
+.center-color {
+  background: #ecf0f1;
 }
 
 
@@ -53,6 +51,16 @@ body {
   padding-top: 5px;
 }
 
+/* base project animation */
+.flipper {
+    position: absolute;
+    width: 100%;
+}
+.backdrop {
+  -webkit-perspective: 1200px;
+  -moz-perspective: 1200px;
+  perspective: 1200px;
+}
 
 /* projects */
 .projects {
@@ -122,6 +130,7 @@ body {
   font-variant: small-caps;
   text-align: left;
   transition: background 0.5s;
+  cursor: pointer;
 }
 .projects-other .project-title {
   font-size: 1.5em;
@@ -129,13 +138,6 @@ body {
 .projects-other .project:hover {
   background: #2980b9;
   transition: background 0.5s;
-}
-
-
-/* project view overlay */
-
-.project-view {
- 
 }
 
 
