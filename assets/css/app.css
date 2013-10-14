@@ -51,6 +51,16 @@ body {
   padding-top: 5px;
 }
 
+/* exceptions */
+.error-message {
+  border-radius: 6px;
+  margin: 20px;
+  background: #c0392b;
+  padding: 20px;
+  color: #ecf0f1;
+  font-variant: small-caps;
+}
+
 /* base project animation */
 .flipper {
     position: absolute;

@@ -1,5 +1,61 @@
-<div class='project-view' auto-scroll-to="{{!!lastProject}}">
-  <div  ng-click='go("/")'><i class='left-arrow icon-angle-left'></i>Projects</div><br>
-  projectviewwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
-<div style='width:100%;height:1000px'></div>
+<div class='project-back' ng-click='go("/")'  auto-scroll-to="{{!!lastProject}}">
+  <i class='left-arrow icon-angle-left'></i>
+  <div class='back-nav-text'>Projects</div>
+</div>
+
+<div ng-if='project' class='project-view'>
+  
+  <!-- project title and image -->
+  <h2 class='project-title'>{{project.title}}</h2>
+  <div class='project-image-container'>
+    <img class='project-image' src='/img/projects/1-wide.png'>
+    <span class='project-desc'>{{project.desc}}</span>
+  </div>
+  
+  <!-- project links -->
+  <div class='pure-g-r project-links'>
+    <div class='pure-u-1-3'>
+      <div ng-if='project.pubLink' class='project-link'>
+        <i class='icon-external-link'></i>
+        <a href='{{ project.pubLink }}'>Application</a>
+      </div>
+    </div>
+    
+    <div class='pure-u-1-3'>
+      <div ng-if='project.blogLink' class='project-link'>
+        <i class='icon-rss'></i>
+        <a href='{{ project.blogLink }}'>Blog Post</a>
+      </div>
+    </div>
+    
+    <div class='pure-u-1-3'>
+      <div ng-if='project.gitHubLink' class='project-link'>
+        <i class='icon-github'></i>
+        <a href='{{ project.gitHubLink }}'>Source Code</a>
+      </div>
+    </div>
+  </div>
+  
+  <h3 class='project-info-header'>About</h3>
+  <div class='project-about'>
+    {{ project.about }}
+  </div>
+  
+  <!-- project key features -->
+  <h3 class='project-info-header'>Key Features</h3>
+  <ul class='project-key-features'>
+    <li ng-repeat='feature in project.features'>
+      {{ feature }}
+    </li>
+  </ul>
+  
+  <!-- project technologies -->
+  <h3 class='project-info-header'>Technologies used</h3>
+  <div class='project-technologies'>
+    <a class='pure-button pure-button-tech' target='_blank' href='{{ tech.link }}' ng-repeat='tech in project.technologies'>{{ tech.name }}</a>
+  </div>
+</div>
+
+<div ng-if='error' class='center error-message-container'>
+  <div class='error-message'>{{ error }}</div>
 </div>

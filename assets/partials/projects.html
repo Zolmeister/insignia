@@ -1,4 +1,4 @@
-<div class='projects'>
+<div ng-if='projects' class='projects'>
   <div class='projects-featured'>
     <div class='project' auto-scroll-to="{{fromProject === project.title}}" ng-repeat='project in projects | filter:{displayType: "featured"}'>
       <img class='project-image' src='/img/projects/1-wide.png'>
@@ -27,4 +27,7 @@
       </div>
     </div>
   </div>
+</div>
+<div ng-if='error' class='center error-message-container'>
+  <div class='error-message'>{{ error }}</div>
 </div>

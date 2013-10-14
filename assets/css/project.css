@@ -1,3 +1,69 @@
+.project-back {
+  text-align: left;
+  padding: 0 4%;
+  cursor: pointer;
+  vertical-align: top;
+}
 .left-arrow {
   font-size: 3em;
+  vertical-align: middle;
+  display: inline-block;
+}
+.back-nav-text {
+  display: inline;
+  vertical-align: middle;
+  padding: 0 10px;
+}
+.project-view .project-title {
+  margin: 0 10px 10px;
+  font-size: 2em;
+}
+.project-view .project-desc {
+  padding: 2px;
+  font-variant: small-caps;
+  font-size: 1.2em;
+}
+.project-view {
+  padding: 0 16%;
+}
+
+.project-links {
+  font-size: 1.2em;
+}
+.project-link {
+  padding: 10px 0;
+}
+
+@media all and (max-width: 760px) {
+  .project-link {
+    padding: 5px 0;
+  }
+}
+@media all and (max-width: 520px) {
+  .project-view {
+    padding: 0 4%;
+  }
+  .project-links {
+    font-size: 1em;
+  }
+}
+
+.project-info-header {
+  margin: 1em 0 0.5em 0;
+}
+
+.project-key-features {
+  text-align: left;
+  margin-top: 0;
+}
+.project-about {
+  text-align: left;
+}
+.project-technologies {
+  margin-bottom: 40px;
+}
+.pure-button-tech {
+  background: #2980b9;
+  color: #ecf0f1;
+  margin: 5px;
 }
