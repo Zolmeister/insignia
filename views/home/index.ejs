@@ -36,55 +36,41 @@
       </div>
     </div>
   </div>
-  <div class='projects'>
-    <div class='projects-featured'>
-      <div class='project'>
-        <img class='project-image' src='/img/projects/1-wide.png'>
-        <div class='overlay'>
-          <div class='project-title'>Project 1</div>
-          <div class='project-desc'>The best app ever with real time features</div>
-        </div>
+  <div class="example-animate-container">
+        <div ng-view class="view-example"></div>
       </div>
-    </div>
-    <div class='pure-g-r projects-main'>
-      <div class='pure-u-1-2'>
-        <div class='project'>
-          <div class='project-image'><img class='project-image' src='/img/projects/1.png'></div>
-          <div class='overlay'>
-            <div class='project-title'>Project 1</div>
-            <div class='project-desc'>The best app ever with real time features</div>
-          </div>
-        </div>
-      </div>
-      <div class='pure-u-1-2'>
-        <div class='project'>
-          <div class='project-image'><img class='project-image' src='/img/projects/1.png'></div>
-          <div class='overlay'>
-            <div class='project-title'>Project 1</div>
-            <div class='project-desc'>The best app ever with real time features</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class='pure-g-r projects-other'>
-      <div class='pure-u-1-3'>
-        <div class='project'>
-          <div class='project-title'>Project 1</div>
-          <div class='project-desc'>The best app ever with real time features</div>
-        </div>
-      </div>
-      <div class='pure-u-1-3'>
-        <div class='project'>
-          <div class='project-title'>Project 1</div>
-          <div class='project-desc'>The best app ever with real time features</div>
-        </div>
-      </div>
-      <div class='pure-u-1-3'>
-        <div class='project'>
-          <div class='project-title'>Project 1</div>
-          <div class='project-desc'>The best app ever with real time features</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!--<div ng-view ng-class="fader-animation"></div>-->
+  <style>
+.example-animate-container {
+  position:relative;
+  overflow:hidden;
+}
+ 
+.view-example.ng-enter, .view-example.ng-leave {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+ 
+ 
+  position:absolute;
+}
+ 
+.example-animate-container {
+  position:relative;
+  height:1000px;
+}
+ 
+.view-example.ng-enter {
+  left:100%;
+}
+.view-example.ng-enter.ng-enter-active {
+  left:0;
+}
+ 
+.view-example.ng-leave { }
+.view-example.ng-leave.ng-leave-active {
+  left:-100%;
+}
+</style>
 </div>

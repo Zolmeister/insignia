@@ -1,5 +1,10 @@
 /* app css stylesheet */
 
+/* global */
+a {
+  text-decoration: none;
+}
+
 /* background */
 body {
   background: #2c3e50;
@@ -77,6 +82,7 @@ body {
   text-align: left;
   color: #ecf0f1;
   font-variant: small-caps;
+  cursor: pointer;
 }
 .overlay .project-title {
   font-size: 4em;
@@ -126,9 +132,11 @@ body {
 }
 
 
+/* project view overlay */
 
-
-
+.project-view {
+ 
+}
 
 
 /*
