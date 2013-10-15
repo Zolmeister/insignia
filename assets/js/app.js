@@ -5,6 +5,7 @@
 angular.module('showcase', [
   'ngRoute',
   'ngAnimate',
+  'ui.router',
   'MD5.service', 
   'gravatar.directive',
   'showcase.filters',
@@ -12,12 +13,26 @@ angular.module('showcase', [
   'showcase.directives',
   'showcase.controllers'
 ]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/', {
+config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise('/')
+  
+  $stateProvider
+    .state('projectList', {
+      url: '/',
+      templateUrl: 'partials/projects.html',
+      controller: 'ProjectsCtrl'
+    })
+    .state('project', {
+      url: '/project/:title',
+      templateUrl: 'partials/project-view.html',
+      controller: 'ProjectViewCtrl'
+    })
+  
+  /*$routeProvider.when('/', {
     templateUrl: 'partials/projects.html',
     controller: 'ProjectsCtrl'
   }).when('/project/:title', {
     templateUrl: 'partials/project-view.html',
     controller: 'ProjectViewCtrl'
-  }).otherwise({redirectTo: '/'});
-}]);
+  }).otherwise({redirectTo: '/'});*/
+}])
