@@ -5,6 +5,8 @@
 angular.module('showcase', [
   'ngRoute',
   'ngAnimate',
+  'MD5.service', 
+  'gravatar.directive',
   'showcase.filters',
   'showcase.services',
   'showcase.directives',
