@@ -1,0 +1,88 @@
+/* projects */
+.projects {
+  padding: 1%;
+}
+.project {
+  margin: 10px;
+  position: relative;
+}
+.project-image {
+  border-radius: 6px;
+  height: auto;
+  width: 100%;
+  display: block;
+}
+/* image overlay */
+.overlay {
+  opacity: 0;
+  position:absolute;
+  top: 0;
+  left: 0;
+  border-radius: 6px;
+  background: rgba(41, 128, 185, 0.7);
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s;
+  text-align: left;
+  color: #ecf0f1;
+  font-variant: small-caps;
+  cursor: pointer;
+}
+.overlay .project-title {
+  font-size: 4em;
+}
+.overlay .project-desc {
+  font-size: 2em;
+}
+.overlay > div {
+  padding: 5% 10% 0 10%;
+}
+.overlay:hover, .overlay:active {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+@media all and (max-width: 780px) {
+  .overlay {
+    font-size: 0.9em;
+  }
+}
+@media all and (max-width: 520px) {
+  .overlay {
+    font-size: 0.8em;
+  }
+}
+@media all and (max-width: 380px) {
+  .overlay {
+    font-size: 0.7em;
+  }
+}
+
+/* non-image projects */
+.projects-other .project {
+  padding: 10px;
+  background: #34495e;
+  color: #ecf0f1;
+  border-radius: 6px;
+  font-variant: small-caps;
+  text-align: left;
+  transition: background 0.5s;
+  cursor: pointer;
+}
+.projects-other .project-title {
+  font-size: 1.5em;
+}
+.projects-other .project:hover {
+  background: #2980b9;
+  transition: background 0.5s;
+}
+
+/* edit */
+.project-add {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: #27ae60;
+  margin-left: 20px;
+  padding: 0.5em;
+  border-radius: 6px;
+}
