@@ -1,9 +1,9 @@
 <div class='center backdrop'>
   <div class='menu center-color' ng-controller='MenuCtrl'>
     <!--<img class='pure-hidden-phone logo' alt='Z' src='https://gravatar.com/avatar/55dbeca986f875e1d1cb4d51e2fc42e4?s=150'>-->
-    <img class='pure-hidden-phone logo' alt='Z' gravatar-image='{{ decodeEmail(info.encodedEmail) }}'>
-    <h1 class='title'>Zolmeister</h1>
-    <h3 class='name'>{{ info.name }}</h3>
+    <img class='pure-hidden-phone logo' alt='Z' gravatar-image='{{ info.email }}'>
+    <h1 class='title' ng-bind-template='{{ info.title }}'></h1>
+    <h3 class='name' ng-bind-template='{{ info.name }}'></h3>
     <div class='center links'>
       <div class='links1'>
         <div class='link'>
@@ -12,7 +12,7 @@
         </div>
         <div class='link'>
           <i class='icon-envelope'></i>
-          <a email-link='{{ decodeEmail(info.encodedEmail) }}'></a>
+          <a email-link='{{ info.email }}'></a>
         </div>
       </div>
       <div class='links2'>

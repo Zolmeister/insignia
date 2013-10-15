@@ -55,14 +55,12 @@ angular.module('showcase.controllers', [])
         $location.path(path);
       }
   }]).controller('MenuCtrl', ['$scope', 'User', function($scope, User){
-    $scope.decodeEmail = decodeURIComponent
-  
     User.get(function getUserInfo(data){
       if(!data || !data[0]) {
         $scope.error = 'Error fetching user info'
       } else {
         $scope.info = data[0]
-        $scope.info.email = $scope.info.encodedEmail
+        $scope.info.email = decodeURIComponent($scope.info.encodedEmail)
       }
     })
   }])
