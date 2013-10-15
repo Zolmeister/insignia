@@ -18,11 +18,38 @@ body {
   background: #ecf0f1;
 }
 
+input {
+  border: 2px solid #bdc3c7;
+  color: #34495e;
+  border-radius: 4px;
+  padding: 4px;
+  margin: 5px;
+}
+
+input:focus {
+  outline: 0;
+  border-color: #2980b9;
+}
 
 /* title bar */
+.menu-save-button-container {
+  margin-bottom: 10px;
+}
+.menu-save-button {
+  margin: 20px auto;
+}
+.menu .success {
+  background: #27ae60;
+}
 .title {
   font-size: 3em;
   margin-bottom: 0;
+}
+.editing .title {
+  margin: .67em auto 0 auto;
+  display: block;
+  max-width: 50%;
+  min-width: 300px;
 }
 .logo {
   position: absolute;
@@ -31,6 +58,10 @@ body {
 }
 .name {
   margin: 10px auto;  
+}
+.editing .name {
+  margin: 10px auto;
+  display: block;
 }
 .links {
   margin: 0 auto;
@@ -45,6 +76,9 @@ body {
   width: 200px;
 }
 .links2 {
+  width: 250px;
+}
+.editing .links1 {
   width: 250px;
 }
 .link {

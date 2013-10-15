@@ -1,0 +1,34 @@
+<div class='menu center-color' ng-controller='MenuCtrl'>
+  <img class='pure-hidden-phone logo' alt='Z' gravatar-image='{{ info.email }}'>
+  <div ng-switch on='$location.path()'>
+    <div ng-switch-when='/admin'>
+      <div ng-include src='"partials/menu-edit.html"' class='editing'></div>
+    </div>
+    <div ng-switch-default>
+      <h1 class='title' ng-bind-template='{{ info.title }}'></h1>
+      <h3 class='name' ng-bind-template='{{ info.name }}'></h3>
+      <div class='center links'>
+        <div class='links1'>
+          <div class='link'>
+            <i class='icon-rss'></i>
+            <a linkify='{{ info.blogLink }}'></a>
+          </div>
+          <div class='link'>
+            <i class='icon-envelope'></i>
+            <a email-link='{{ info.email }}'></a>
+          </div>
+        </div>
+        <div class='links2'>
+          <div class='link'>
+            <i class='icon-github'></i>
+            <a linkify='{{ info.gitHubLink }}'></a>
+          </div>
+          <div class='link'>
+            <i class='icon-linkedin-sign'></i>
+            <a linkify='{{ info.linkedInLink }}'></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

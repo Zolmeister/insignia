@@ -16,8 +16,9 @@ angular.module('showcase.services', ['ngResource'])
     })
   }])
   .factory('User', ['$resource', function($resource) {
-    return $resource('/user/', {}, {
-      get: {method: 'GET', isArray: true}
+    return $resource('/user/:id', {id: '@id'}, {
+      get: {method: 'GET', isArray: true},
+      update: {method: 'PUT'}
     })
   }])
 

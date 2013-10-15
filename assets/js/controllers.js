@@ -54,13 +54,35 @@ angular.module('showcase.controllers', [])
         $rootScope.pageTurn = 'left'
         $location.path(path);
       }
-  }]).controller('MenuCtrl', ['$scope', 'User', function($scope, User){
-    User.get(function getUserInfo(data){
-      if(!data || !data[0]) {
+  }]).controller('MenuCtrl', ['$scope', 'User', '$location', function($scope, User, $location){
+    
+    // load user data from server
+    function getUserInfo(data) {
+      if(!data) {
         $scope.error = 'Error fetching user info'
       } else {
-        $scope.info = data[0]
+        $scope.info = data
         $scope.info.email = decodeURIComponent($scope.info.encodedEmail)
       }
+    }
+    
+    // .get() uses function.length, so we must wrap the compose
+    User.get(function(data){
+      return _.compose(getUserInfo, _.first)(data)
     })
+    
+    $scope.save = function() {
+      
+      $scope.updateSuccess = false
+      
+      // $scope.info hs our data, PUT it up
+      $scope.info.$update(function(data){
+        if(data) {
+          getUserInfo(data)
+          $scope.updateSuccess = true
+        }
+      })
+    }
+    
+    $scope.$location = $location
   }])
