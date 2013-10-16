@@ -12,6 +12,7 @@
   width: 100%;
   display: block;
 }
+
 /* image overlay */
 .overlay {
   opacity: 0;
@@ -77,12 +78,29 @@
 }
 
 /* edit */
-.project-add {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  background: #27ae60;
-  margin-left: 20px;
-  padding: 0.5em;
-  border-radius: 6px;
+.home-button {
+  float: left;
+  margin: 20px;
 }
+.projects-section-title {
+  display: inline-block;
+  margin-right: 20px;
+}
+.pure-button-success {
+  background: #27ae60;
+  color: #ecf0f1;
+}
+.pure-button-small {
+  font-size: 85%;
+}
+.project-button {
+  float: right;
+  margin: 5px;
+}
+.project-info {
+  display: inline-block;
+}
+
+
+
+

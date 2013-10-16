@@ -18,17 +18,29 @@ body {
   background: #ecf0f1;
 }
 
-input {
+input, textarea {
   border: 2px solid #bdc3c7;
   color: #34495e;
   border-radius: 4px;
   padding: 4px;
   margin: 5px;
+  max-width: 100%;
 }
 
-input:focus {
+input:focus, textarea:focus {
   outline: 0;
   border-color: #2980b9;
+}
+
+
+
+.pure-button-remove {
+  background: #e74c3c;
+  color: #ecf0f1;
+}
+
+.pure-button-remove-small {
+  padding: .25em .5em;
 }
 
 /* title bar */

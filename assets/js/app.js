@@ -5,6 +5,7 @@
 angular.module('showcase', [
   'ngRoute',
   'ngAnimate',
+  'ngTouch',
   'MD5.service', 
   'gravatar.directive',
   'showcase.filters',
@@ -22,6 +23,9 @@ config(['$routeProvider', function($routeProvider) {
   }).when('/admin', {
     templateUrl: 'partials/projects-edit.html',
     controller: 'ProjectsCtrl'
+  }).when('/admin/edit/:title', {
+    templateUrl: 'partials/project-view-edit.html',
+    controller: 'ProjectViewCtrl'
   })
   .otherwise({redirectTo: '/'});
 }]);

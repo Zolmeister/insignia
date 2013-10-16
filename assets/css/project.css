@@ -31,7 +31,7 @@
   font-size: 1.2em;
 }
 .project-link {
-  padding: 10px 0;
+  padding: 10px 10px;
 }
 
 @media all and (max-width: 760px) {
@@ -49,7 +49,8 @@
 }
 
 .project-info-header {
-  margin: 1em 0 0.5em 0;
+  margin: 1em 5px 0.5em 0;
+  display: inline-block;
 }
 
 .project-key-features {
@@ -67,3 +68,29 @@
   color: #ecf0f1;
   margin: 5px;
 }
+
+.project-about-input {
+  width: 100%;
+  height: 5em;
+}
+
+.editing .project-desc {
+  width: 50%;
+}
+
+.project-save-button {
+  display: block;
+  margin: 10px auto;
+}
+
+.project-feature-input {
+  width: 80%;
+}
+.project-feature-remove {
+  position: absolute;
+  margin-right: -20px;
+}
+
+
+
+

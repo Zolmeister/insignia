@@ -5,7 +5,21 @@
 angular.module('showcase.controllers', [])
   .controller('ProjectsCtrl', ['$scope', '$routeParams', 'Project', '$location', '$rootScope', 
     function($scope, $routeParams, Project, $location, $rootScope) {
-
+      
+    $scope.newProject = function(type) {
+      console.log('new up a project of type', type)
+    }
+    
+    $scope.edit = function(project) {
+      $scope.go('/admin/edit/'+project.title, null)
+    }
+    
+    $scope.remove = function(project) {
+      if (window.confirm('Are you sure you want to remove '+project.title+'?')) {
+        console.log('confirmed removal')
+      }
+    }
+    
     $scope.go = function (path, projectTitle) {
       $rootScope.lastProject = projectTitle
       $rootScope.pageTurn = 'right'
@@ -26,6 +40,37 @@ angular.module('showcase.controllers', [])
   }])
   .controller('ProjectViewCtrl', ['$scope', '$routeParams', 'Project', '$location', '$rootScope',
     function($scope, $routeParams, Project, $location, $rootScope) {
+      
+      $scope.save = function() {
+        console.log('TODO save')
+        /*$scope.updateSuccess = false
+        
+        // $scope.info hs our data, PUT it up
+        $scope.project.$update(function(data){
+          if(data) {
+            getUserInfo(data)
+            $scope.updateSuccess = true
+          }
+        })*/
+      }
+      
+      /* todo - make this features editing thing a directive */
+      $scope.addFeature = function() {
+        $scope.project.features.push({value: ''})
+      }
+      
+      $scope.removeFeature = function(feature) {
+        $scope.project.features.splice($scope.project.features.indexOf(feature), 1)
+      }
+      
+      $scope.addTech = function() {
+        $scope.project.technologies.push({link: '', name: ''})
+      }
+      
+      $scope.removeTech = function(tech) {
+        $scope.project.technologies.splice($scope.project.technologies.indexOf(tech), 1)
+      }
+      
       Project.get({title:'anotherTitle'}, function(data) {
         var project = data[0]
         if(!project) {
@@ -41,11 +86,11 @@ angular.module('showcase.controllers', [])
             {link: 'http://nodejs.org', name:'node.js'}
           ]
           $scope.project.features = [
-            'Complete responsive rendering, same code for mobile and desktop.',
-            'Major performance optimizations for mobile',
-            'Fixed timestep game loop',
-            'Deployed on Google Play, Chrome Web Store, Amazon App Store, Firefox Marketplace, and more',
-            'Dynamic real-time irregular shape collision'
+            {value:'Complete responsive rendering, same code for mobile and desktop.'},
+            {value:'Major performance optimizations for mobile'},
+            {value:'Fixed timestep game loop'},
+            {value:'Deployed on Google Play, Chrome Web Store, Amazon App Store, Firefox Marketplace, and more'},
+            {value:'Dynamic real-time irregular shape collision'}
           ]
           $scope.project.about = 'The Pond is a simple yet elegant casual game for both mobile and desktop. It leverages HTML5 canvas to create a seamless interactive experience on all platforms, and is deployed in over 4 different app markets.'
         }
@@ -85,4 +130,6 @@ angular.module('showcase.controllers', [])
     }
     
     $scope.$location = $location
+    console.log($location.path())
+    window.a = $location
   }])

@@ -7,9 +7,14 @@ angular.module('showcase.directives', ['MD5.service'])
   .directive('autoScrollTo', function() {
     return function(scope, $el, attrs){
       if(attrs.autoScrollTo === 'true') {
-        $('html, body').animate({
-            scrollTop: $el.offset().top
-        }, 500);
+        
+        // calculate after all re-paints
+        window.setTimeout(function(){
+          $('html, body').animate({
+              scrollTop: $el.offset().top
+          }, 500);
+        }, 0)
+        
       }
     }
   })
