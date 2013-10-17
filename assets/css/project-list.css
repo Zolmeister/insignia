@@ -79,8 +79,14 @@
 
 /* edit */
 .home-button {
-  float: left;
-  margin: 20px;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+.place-holder {
+  margin: 0 10%;
+  border: 4px dashed #2980b9;
+  padding: 10px 0;
 }
 .projects-section-title {
   display: inline-block;

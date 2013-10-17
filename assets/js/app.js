@@ -26,6 +26,9 @@ config(['$routeProvider', function($routeProvider) {
   }).when('/admin/edit/:title', {
     templateUrl: 'partials/project-view-edit.html',
     controller: 'ProjectViewCtrl'
+  }).when('/admin/new/:type', {
+    templateUrl: 'partials/project-view-edit.html',
+    controller: 'ProjectViewCtrl'
   })
   .otherwise({redirectTo: '/'});
 }]);

@@ -11,9 +11,7 @@ angular.module('showcase.services', ['ngResource'])
   // disable auto-scroll when loading new partial
   .value('$anchorScroll', angular.noop)
   .factory('Project', ['$resource', function($resource) {
-    return $resource('/project/', {}, {
-      get: {method: 'GET', isArray: true}
-    })
+    return $resource('/project')
   }])
   .factory('User', ['$resource', function($resource) {
     return $resource('/user/:id', {id: '@id'}, {

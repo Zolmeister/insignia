@@ -16,6 +16,7 @@
         <div style="clear: right;"></div>
     </div>
   </div>
+  <div class='place-holder' ng-if='!haveAny("featured")'>none</div>
   
   <h2 class='projects-section-title'>Main</h2>
   <button class='pure-button pure-button-small pure-button-success' ng-click='newProject("main")'>add</button>
@@ -36,6 +37,7 @@
       </div>
     </div>
   </div>
+  <div class='place-holder' ng-if='!haveAny("main")'>none</div>
   
   <h2 class='projects-section-title'>Other</h2>
   <button class='pure-button pure-button-small pure-button-success' ng-click='newProject("other")'>add</button>
@@ -55,6 +57,8 @@
       </div>
     </div>
   </div>
+  <div class='place-holder' ng-if='!haveAny("other")'>none</div>
+  
 </div>
 
 <div ng-if='error' class='center error-message-container'>

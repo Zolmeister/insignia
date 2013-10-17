@@ -2,75 +2,67 @@
   <i class='left-arrow icon-angle-left'></i>
   <div class='back-nav-text'>Projects</div>
 </div>
-
-<div ng-if='project' class='project-view editing'>
-  <button class='pure-button pure-button-primary project-save-button'  ng-class='{success: updateSuccess}' ng-click='save()'>save project</button>
-  
-  <!-- project title and image -->
-  <input type='text' class='project-title' ng-model='project.title'>
-  <div class='project-image-container'>
-    <img class='project-image' src='/img/projects/1-wide.png'>
-    <input type='text' class='project-desc' ng-model='project.desc'>
-  </div>
-  
-  <!-- project links -->
-  <div class='pure-g-r project-links'>
-    <div class='pure-u-1-3'>
-      <div ng-if='project.pubLink' class='project-link'>
-        <i class='icon-external-link'></i>
-        <input type='text' ng-model='project.pubLink'>
+<form ng-submit='save()'>
+  <div ng-if='project' class='project-view editing'>
+    <input type='submit' class='pure-button pure-button-primary project-save-button' ng-class='{success: updateSuccess}' value='save'>
+    <!-- project title and image -->
+    <input type='text' class='project-title' ng-model='project.title' placeholder='Title' required>
+    <div class='project-image-container'>
+      <img class='project-image' src='/img/projects/1-wide.png'>
+      <input type='text' class='project-desc' ng-model='project.desc' placeholder='Short description'>
+    </div>
+    <!-- project links -->
+    <div class='pure-g-r project-links'>
+      <div class='pure-u-1-3'>
+        <div ng-if='project.pubLink' class='project-link'>
+          <i class='icon-external-link'></i>
+          <input type='text' ng-model='project.pubLink'>
+        </div>
+      </div>
+      <div class='pure-u-1-3'>
+        <div ng-if='project.blogLink' class='project-link'>
+          <i class='icon-rss'></i>
+          <input type='text' ng-model='project.blogLink'>
+        </div>
+      </div>
+      <div class='pure-u-1-3'>
+        <div ng-if='project.gitHubLink' class='project-link'>
+          <i class='icon-github'></i>
+          <input type='text' ng-model='project.gitHubLink'>
+        </div>
       </div>
     </div>
-    
-    <div class='pure-u-1-3'>
-      <div ng-if='project.blogLink' class='project-link'>
-        <i class='icon-rss'></i>
-        <input type='text' ng-model='project.blogLink'>
-      </div>
+    <h3 class='project-info-header'>About</h3>
+    <div class='project-about'>
+      <textarea class='project-about-input' ng-model='project.about' placeholder='About'></textarea>
     </div>
-    
-    <div class='pure-u-1-3'>
-      <div ng-if='project.gitHubLink' class='project-link'>
-        <i class='icon-github'></i>
-        <input type='text' ng-model='project.gitHubLink'>
-      </div>
-    </div>
-  </div>
-  
-  <h3 class='project-info-header'>About</h3>
-  <div class='project-about'>
-    <textarea class='project-about-input' ng-model='project.about'>
-    </textarea>
-  </div>
-  
-  <!-- project key features -->
-  <h3 class='project-info-header'>Key Features</h3>
-  <button class='pure-button pure-button-small pure-button-success' ng-click='addFeature()'>add</button>
-  <div ng-repeat='feature in project.features'>
-    <label class='pure-button pure-button-remove pure-button-remove-small' ng-click='removeFeature(feature)'>
-      <i class='icon-remove'></i>
-    </label>
-    <input type='text' class='project-feature-input' ng-model='feature.value'>
-  </div>
-  
-  <!-- project technologies -->
-  <h3 class='project-info-header'>Technologies used</h3>
-  <button class='pure-button pure-button-small pure-button-success' ng-click='addTech()'>add</button>
-  <div class='project-technologies'>
-    <div ng-repeat='tech in project.technologies'>
-      <label class='pure-button pure-button-remove pure-button-remove-small ' ng-click='removeTech(tech)'>
+    <!-- project key features -->
+    <h3 class='project-info-header'>Key Features</h3>
+    <button class='pure-button pure-button-small pure-button-success' ng-click='addFeature()'>add</button>
+    <br>
+    <div ng-repeat='feature in project.features'>
+      <label class='pure-button pure-button-remove pure-button-remove-small' ng-click='removeFeature(feature)'>
         <i class='icon-remove'></i>
       </label>
-      <input type='text' value='{{ tech.name }}' size=8>
-      <input type='text' value='{{ tech.link }}'>
+      <input type='text' class='project-feature-input' ng-model='feature.value'>
     </div>
-    <!--
-    <a class='pure-button pure-button-tech' target='_blank' href='{{ tech.link }}' ng-repeat='tech in project.technologies'>{{ tech.name }}</a>-->
+    <!-- project technologies -->
+    <h3 class='project-info-header'>Technologies used</h3>
+    <button class='pure-button pure-button-small pure-button-success' ng-click='addTech()'>add</button>
+    <br>
+    <div class='project-technologies'>
+      <div ng-repeat='tech in project.technologies'>
+        <label class='pure-button pure-button-remove pure-button-remove-small ' ng-click='removeTech(tech)'>
+          <i class='icon-remove'></i>
+        </label>
+        <input type='text' value='{{ tech.name }}' size=8>
+        <input type='text' value='{{ tech.link }}'>
+      </div>
+      <!-- <a class='pure-button pure-button-tech' target='_blank' href='{{ tech.link }}' ng-repeat='tech in project.technologies'>{{ tech.name }}</a>-->
+    </div>
+    <input type='submit' class='pure-button pure-button-primary project-save-button' ng-class='{success: updateSuccess}' value='save'>
   </div>
-  
-    <button class='pure-button pure-button-primary project-save-button'  ng-class='{success: updateSuccess}' ng-click='save()'>save project</button>
-</div>
-
+</form>
 <div ng-if='error' class='center error-message-container'>
   <div class='error-message'>{{ error }}</div>
 </div>

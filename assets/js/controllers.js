@@ -7,7 +7,7 @@ angular.module('showcase.controllers', [])
     function($scope, $routeParams, Project, $location, $rootScope) {
       
     $scope.newProject = function(type) {
-      console.log('new up a project of type', type)
+      $scope.go('/admin/new/'+type, null)
     }
     
     $scope.edit = function(project) {
@@ -16,8 +16,18 @@ angular.module('showcase.controllers', [])
     
     $scope.remove = function(project) {
       if (window.confirm('Are you sure you want to remove '+project.title+'?')) {
-        console.log('confirmed removal')
+        Project.delete(project, function(data) {
+          if(data) {
+            
+            // remove project from local list
+            $scope.projects.splice($scope.projects.indexOf(project), 1)
+          }
+        })
       }
+    }
+    
+    $scope.haveAny = function(type) {
+      return !!_.filter($scope.projects, {displayType: type}).length
     }
     
     $scope.go = function (path, projectTitle) {
@@ -28,30 +38,55 @@ angular.module('showcase.controllers', [])
         
     $scope.fromProject = $rootScope.lastProject
     $rootScope.lastProject = null
-    
-    Project.query(function(data) {
-      if(!data) {
-        $scope.error = 'Error fetching projects'
-      } else {
-        $scope.projects = data
-      }
-    })
+    $scope.projects = Project.query()
+      
     
   }])
   .controller('ProjectViewCtrl', ['$scope', '$routeParams', 'Project', '$location', '$rootScope',
     function($scope, $routeParams, Project, $location, $rootScope) {
       
+      // if we have a title, we are editing a project
+      var isNew = !$routeParams.title
+      if(isNew) {
+        // create a new project
+        var type = $routeParams.type || 'other'
+        var project = {
+          title: '',
+          desc: '',
+          about: '',
+          displayType: type,
+          technologies: [],
+          pubLink: '',
+          blogLink: '',
+          gitHubLink: '',
+          features: []
+        }
+        $scope.project = project
+      } else {
+        console.log('loaded old project')
+      }
+      
       $scope.save = function() {
-        console.log('TODO save')
-        /*$scope.updateSuccess = false
-        
-        // $scope.info hs our data, PUT it up
-        $scope.project.$update(function(data){
-          if(data) {
-            getUserInfo(data)
-            $scope.updateSuccess = true
-          }
-        })*/
+        $scope.updateSuccess = false
+        if(isNew) {
+
+          // POST
+          Project.save($scope.project, function(data){
+            if(data) {
+              $scope.updateSuccess = true
+              $scope.go('/admin')
+            }
+          })
+        } else {
+          
+          // PUT
+          $scope.project.$update(function(data) {
+            if(data) {
+              $scope.updateSuccess = true
+              $scope.go('/admin')
+            }
+          })
+        }
       }
       
       /* todo - make this features editing thing a directive */
@@ -71,13 +106,18 @@ angular.module('showcase.controllers', [])
         $scope.project.technologies.splice($scope.project.technologies.indexOf(tech), 1)
       }
       
-      Project.get({title:'anotherTitle'}, function(data) {
-        var project = data[0]
+      Project.query({title: $routeParams.title}, function(data){
+        $scope.project = data[0]
+      })
+      
+      /*
+      Project.get({title: $routeParams.title}, function(data) {
+        var project = data
         if(!project) {
           $scope.error = 'Error fetching project'
         } else {
           $scope.project = project
-          $scope.project.pubLink = $scope.project.blogLink = $scope.project.gitHubLink = 'http://sourceurl.com'
+          /*$scope.project.pubLink = $scope.project.blogLink = $scope.project.gitHubLink = 'http://sourceurl.com'
           $scope.project.technologies = [
             {link: 'http://nodejs.org', name:'node.js'},
             {link: 'http://nodejs.org', name:'node.js'},
@@ -94,7 +134,8 @@ angular.module('showcase.controllers', [])
           ]
           $scope.project.about = 'The Pond is a simple yet elegant casual game for both mobile and desktop. It leverages HTML5 canvas to create a seamless interactive experience on all platforms, and is deployed in over 4 different app markets.'
         }
-      })
+      })*/
+      
       $scope.go = function (path) {
         $rootScope.pageTurn = 'left'
         $location.path(path);
@@ -130,6 +171,4 @@ angular.module('showcase.controllers', [])
     }
     
     $scope.$location = $location
-    console.log($location.path())
-    window.a = $location
   }])
