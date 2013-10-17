@@ -63,7 +63,10 @@ angular.module('showcase.controllers', [])
         }
         $scope.project = project
       } else {
-        console.log('loaded old project')
+        // old project
+        Project.query({title: $routeParams.title}, function(data){
+          $scope.project = data[0]
+        })
       }
       
       $scope.save = function() {
@@ -105,10 +108,6 @@ angular.module('showcase.controllers', [])
       $scope.removeTech = function(tech) {
         $scope.project.technologies.splice($scope.project.technologies.indexOf(tech), 1)
       }
-      
-      Project.query({title: $routeParams.title}, function(data){
-        $scope.project = data[0]
-      })
       
       /*
       Project.get({title: $routeParams.title}, function(data) {
