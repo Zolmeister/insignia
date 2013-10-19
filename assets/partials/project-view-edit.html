@@ -38,7 +38,7 @@
     </div>
     <!-- project key features -->
     <h3 class='project-info-header'>Key Features</h3>
-    <button class='pure-button pure-button-small pure-button-success' ng-click='addFeature()'>add</button>
+    <a class='pure-button pure-button-small pure-button-success' ng-click='addFeature()'>add</a>
     <br>
     <div ng-repeat='feature in project.features'>
       <label class='pure-button pure-button-remove pure-button-remove-small' ng-click='removeFeature(feature)'>
@@ -48,7 +48,7 @@
     </div>
     <!-- project technologies -->
     <h3 class='project-info-header'>Technologies used</h3>
-    <button class='pure-button pure-button-small pure-button-success' ng-click='addTech()'>add</button>
+    <a class='pure-button pure-button-small pure-button-success' ng-click='addTech()'>add</a>
     <br>
     <div class='project-technologies'>
       <div ng-repeat='tech in project.technologies'>

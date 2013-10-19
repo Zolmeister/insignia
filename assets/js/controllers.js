@@ -38,8 +38,10 @@ angular.module('showcase.controllers', [])
         
     $scope.fromProject = $rootScope.lastProject
     $rootScope.lastProject = null
-    $scope.projects = Project.query()
-      
+    Project.query(function(data){
+      $scope.projects = data
+    })
+    
     
   }])
   .controller('ProjectViewCtrl', ['$scope', '$routeParams', 'Project', '$location', '$rootScope',
@@ -83,7 +85,7 @@ angular.module('showcase.controllers', [])
         } else {
           
           // PUT
-          $scope.project.$update(function(data) {
+          Project.update($scope.project, function(data) {
             if(data) {
               $scope.updateSuccess = true
               $scope.go('/admin')
@@ -145,6 +147,7 @@ angular.module('showcase.controllers', [])
     function getUserInfo(data) {
       if(!data) {
         $scope.error = 'Error fetching user info'
+        $scope.info = User.save({})
       } else {
         $scope.info = data
         $scope.info.email = decodeURIComponent($scope.info.encodedEmail)
@@ -160,7 +163,7 @@ angular.module('showcase.controllers', [])
       
       $scope.updateSuccess = false
       
-      // $scope.info hs our data, PUT it up
+      // $scope.info has our data, PUT it up
       $scope.info.$update(function(data){
         if(data) {
           getUserInfo(data)

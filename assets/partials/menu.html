@@ -1,10 +1,9 @@
 <div class='menu center-color' ng-controller='MenuCtrl'>
-  <img class='pure-hidden-phone logo' alt='Z' gravatar-image='{{ info.email }}'>
-  <div ng-switch on='$location.path()'>
-    <div ng-switch-when='/admin'>
+  <img class='pure-hidden-phone logo' alt='logo' gravatar-image='{{ info.email }}'>
+    <div ng-show='$location.path() === "/admin"'>
       <div ng-include src='"partials/menu-edit.html"' class='editing'></div>
     </div>
-    <div ng-switch-default>
+    <div ng-show='$location.path() !== "/admin"'>
       <h1 class='title' ng-bind-template='{{ info.title }}'></h1>
       <h3 class='name' ng-bind-template='{{ info.name }}'></h3>
       <div class='center links'>
@@ -29,6 +28,5 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
 </div>
