@@ -1,2 +1,1 @@
-# showcase
-### a Sails application
+# Insignia
