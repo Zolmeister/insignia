@@ -34,7 +34,10 @@ module.exports.routes = {
   // (This would also work if you had a file at: `/views/home.ejs`)
   '/': {
     view: 'home/index'
-  }
+  },
+  
+  'GET /project/:title/img/:size': 'UploadController.getImg',
+  'POST /project/:title/upload/:size': 'UploadController.upload'
 
   /*
   // But what if you want your home page to display

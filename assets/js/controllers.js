@@ -44,8 +44,8 @@ angular.module('showcase.controllers', [])
     
     
   }])
-  .controller('ProjectViewCtrl', ['$scope', '$routeParams', 'Project', '$location', '$rootScope',
-    function($scope, $routeParams, Project, $location, $rootScope) {
+  .controller('ProjectViewCtrl', ['$scope', '$routeParams', 'Project', '$location', '$rootScope', '$http',
+    function($scope, $routeParams, Project, $location, $rootScope, $http) {
       
       // if we have a title, we are editing a project
       var isNew = !$routeParams.title
@@ -68,6 +68,19 @@ angular.module('showcase.controllers', [])
         // old project
         Project.query({title: $routeParams.title}, function(data){
           $scope.project = data[0]
+        })
+      }
+      
+      $scope.refreshImg = 0
+      $scope.onFileSelect = function($files, size) {
+        var $file = $files[0]
+        $http.uploadFile({
+          url: 'project/'+$scope.project.title+'/upload/'+size,
+          file: $file
+        }).then(function(data, status, headers, config) {
+          $scope.$apply(function(){
+            $scope.refreshImg = Date.now()
+          })
         })
       }
       

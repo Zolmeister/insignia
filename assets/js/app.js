@@ -6,6 +6,7 @@ angular.module('showcase', [
   'ngRoute',
   'ngAnimate',
   'ngTouch',
+  'angularFileUpload',
   'MD5.service', 
   'gravatar.directive',
   'showcase.filters',
