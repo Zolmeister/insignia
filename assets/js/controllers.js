@@ -47,9 +47,12 @@ angular.module('showcase.controllers', [])
   .controller('ProjectViewCtrl', ['$scope', '$routeParams', 'Project', '$location', '$rootScope', '$http',
     function($scope, $routeParams, Project, $location, $rootScope, $http) {
       
+      $scope.updateSuccess = false
+      
       // if we have a title, we are editing a project
       var isNew = !$routeParams.title
       if(isNew) {
+        $scope.updateSuccess = true
         // create a new project
         var type = $routeParams.type || 'other'
         var project = {
@@ -61,6 +64,7 @@ angular.module('showcase.controllers', [])
           pubLink: '',
           blogLink: '',
           gitHubLink: '',
+          imgId: Date.now(),
           features: []
         }
         $scope.project = project
@@ -75,7 +79,7 @@ angular.module('showcase.controllers', [])
       $scope.onFileSelect = function($files, size) {
         var $file = $files[0]
         $http.uploadFile({
-          url: 'project/'+$scope.project.title+'/upload/'+size,
+          url: 'project/'+$scope.project.imgId+'/upload/'+size,
           file: $file
         }).then(function(data, status, headers, config) {
           $scope.$apply(function(){
@@ -83,6 +87,7 @@ angular.module('showcase.controllers', [])
           })
         })
       }
+      
       
       $scope.save = function() {
         $scope.updateSuccess = false

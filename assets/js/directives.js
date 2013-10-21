@@ -44,6 +44,15 @@ angular.module('showcase.directives', ['MD5.service'])
       }
     }
   })
+  .directive('sortable', function() {
+    return function(scope, $el, attrs) {
+      $el.sortable({
+        items: '.project'
+      }).bind('sortupdate', function(e, ui) {
+        console.log('sort update', e, ui)
+      })
+    }
+  })
 
 angular.module('gravatar.directive', ['MD5.service'])
   .directive('gravatarImage', ['MD5', function(MD5) {

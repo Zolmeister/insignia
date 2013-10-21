@@ -28,7 +28,6 @@ var imgPlaceholder = {
 module.exports = {
     
   upload: function(req, res) {
-    console.log('uploading file')
     var project = req.param('title')
     var file = req.files.file
     var size = req.param('size')
@@ -37,19 +36,16 @@ module.exports = {
     uploadStream.on('close', function(){
       fs.unlink(file.path, function(err) {
         if(err) return res.json({error: 'error uploading file'})
-        console.log('file upload success')
         return res.json({success: 'true'})
       })
     })
     
     uploadStream.on('error', function(err){
-      console.error(err)
       return res.json({error: 'error uploading file'})
     })
   },
 
   getImg: function(req, res) {
-    console.log('streaming file')
     var project = req.param('title')
     var size = req.param('size')
     
