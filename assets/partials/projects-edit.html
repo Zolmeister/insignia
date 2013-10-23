@@ -2,6 +2,7 @@
 <div ng-cloack class='projects' sortable>
   <h2 class='projects-section-title'>Featured</h2>
   <button class='pure-button pure-button-small pure-button-success' ng-click='newProject("featured")'>add</button>
+  <br>
   <div class='projects-other'>
     <div class='project' ng-repeat='project in projects | filter:{displayType: "featured"}'>
       <div class='project-info'>
@@ -20,41 +21,38 @@
   
   <h2 class='projects-section-title'>Main</h2>
   <button class='pure-button pure-button-small pure-button-success' ng-click='newProject("main")'>add</button>
-  
-  <div class='pure-g-r projects-other'>
-    <div class='pure-u-1-2' ng-repeat='project in projects | filter:{displayType: "main"}'>
-      <div class='project'>
-        <div class='project-info'>
-          <div class='project-title'>{{ project.title }}</div>
-          <div class='project-desc'>{{ project.desc }}</div>
-        </div>
-        
-        <button class='pure-button pure-button-small pure-button-success project-button' ng-click='edit(project)'>edit</button>
-        <button class='pure-button pure-button-small pure-button-remove project-button' ng-click='remove(project)'>remove</button>
-                
-        <!-- causes expantion of div based on floated button size -->
-        <div style="clear: right;"></div>
+  <br>
+  <div class='projects-other projects-main-edit'>
+    <div class='project' ng-repeat='project in projects | filter:{displayType: "main"}'>
+      <div class='project-info'>
+        <div class='project-title'>{{ project.title }}</div>
+        <div class='project-desc'>{{ project.desc }}</div>
       </div>
+      
+      <button class='pure-button pure-button-small pure-button-success project-button' ng-click='edit(project)'>edit</button>
+      <button class='pure-button pure-button-small pure-button-remove project-button' ng-click='remove(project)'>remove</button>
+              
+      <!-- causes expantion of div based on floated button size -->
+      <div style="clear: right;"></div>
     </div>
   </div>
   <div class='place-holder' ng-if='!haveAny("main")'>none</div>
   
   <h2 class='projects-section-title'>Other</h2>
   <button class='pure-button pure-button-small pure-button-success' ng-click='newProject("other")'>add</button>
-  <div class='pure-g-r projects-other'>
-    <div class='pure-u-1-3' auto-scroll-to="{{fromProject === project.title}}" ng-repeat='project in projects | filter:{displayType: "other"}'>
-      <div class='project' ng-click='go("/project/{{ project.title }}", "{{ project.title }}")'>
-        <div class='project-info'>
-          <div class='project-title'>{{ project.title }}</div>
-          <div class='project-desc'>{{ project.desc }}</div>
-        </div>
-        
-        <button class='pure-button pure-button-small pure-button-success project-button' ng-click='edit(project)'>edit</button>
-        <button class='pure-button pure-button-small pure-button-remove project-button' ng-click='remove(project)'>remove</button>
-        
-        <!-- causes expantion of div based on floated button size -->
-        <div style="clear: right;"></div>
+  <br>
+  <div class='projects-other projects-other-edit'>
+    <div class='project' ng-repeat='project in projects | filter:{displayType: "other"}'>
+      <div class='project-info'>
+        <div class='project-title'>{{ project.title }}</div>
+        <div class='project-desc'>{{ project.desc }}</div>
       </div>
+      
+      <button class='pure-button pure-button-small pure-button-success project-button' ng-click='edit(project)'>edit</button>
+      <button class='pure-button pure-button-small pure-button-remove project-button' ng-click='remove(project)'>remove</button>
+      
+      <!-- causes expantion of div based on floated button size -->
+      <div style="clear: right;"></div>
     </div>
   </div>
   <div class='place-holder' ng-if='!haveAny("other")'>none</div>

@@ -107,6 +107,16 @@
   display: inline-block;
 }
 
+.projects-main-edit .project {
+  display: inline-block;
+  width: 46%;
+  margin: 1%;
+  padding: 1%;
+}
 
-
-
+.projects-other-edit .project {
+  display: inline-block;
+  width: 26%;
+  margin: 1%;
+  padding: 1%;
+}
