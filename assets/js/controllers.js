@@ -40,8 +40,24 @@ angular.module('showcase.controllers', [])
     $rootScope.lastProject = null
     Project.query(function(data){
       $scope.projects = data
+      _.each($scope.projects, function(project) {
+        project.$index = project.index
+        project.$type = project.displayType
+      })
     })
     
+    $scope.save = function() {
+      _.each($scope.projects, function(project) {
+        if(project.$index !== project.index || project.$type !== project.displayType) {
+          Project.update(project, function(){
+            project.$index = project.index
+            project.$type = project.displayType
+          })
+        }
+      })
+    }
+    
+    $scope.$on('sortupdate', $scope.save)
     
   }])
   .controller('ProjectViewCtrl', ['$scope', '$routeParams', 'Project', '$location', '$rootScope', '$http',
@@ -65,6 +81,7 @@ angular.module('showcase.controllers', [])
           blogLink: '',
           gitHubLink: '',
           imgId: Date.now(),
+          index: -1,
           features: []
         }
         $scope.project = project

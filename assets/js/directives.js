@@ -46,11 +46,31 @@ angular.module('showcase.directives', ['MD5.service'])
   })
   .directive('sortable', function() {
     return function(scope, $el, attrs) {
-      $el.sortable({
-        items: '.project'
-      }).bind('sortupdate', function(e, ui) {
-        console.log('sort update', e, ui)
-      })
+    var startIndex = null, startType = null
+    scope.$on('rebindsort', bindSort)
+    
+    function bindSort(){
+       var projects = _.map($el.find('.project'), $)
+
+       $el.sortable({
+          items: '.project'
+        }).unbind('sortupdate').bind('sortupdate', function(e, ui) {
+          
+          _.each(projects, function($proj) {
+            var proj = _.find(scope.projects, function(proj){
+              return $proj.attr('_id') === proj.id
+            })
+            
+            proj.index = $proj.index()
+            proj.displayType = $proj.parent().attr('type')
+          })
+          
+          scope.$broadcast('sortupdate')
+        })
+        
+     }
+      
+     window.setTimeout(bindSort, 100)
     }
   })
 

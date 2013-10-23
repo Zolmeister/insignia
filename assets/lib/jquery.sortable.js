@@ -14,14 +14,14 @@ $.fn.sortable = function(options) {
 	}, options);
 	return this.each(function() {
 		if (/^enable|disable|destroy$/.test(method)) {
-			var items = $(this).children($(this).data('items')).attr('draggable', method == 'enable');
+			var items = $(this).find($(this).data('items')).attr('draggable', method == 'enable');
 			if (method == 'destroy') {
 				items.add(this).removeData('connectWith items')
 					.off('dragstart.h5s dragend.h5s selectstart.h5s dragover.h5s dragenter.h5s drop.h5s');
 			}
 			return;
 		}
-		var isHandle, index, items = $(this).children(options.items);
+		var isHandle, index, items = $(this).find(options.items);
 		var placeholder = $('<' + (/^ul|ol$/i.test(this.tagName) ? 'li' : 'div') + ' class="sortable-placeholder">');
 		items.find(options.handle).mousedown(function() {
 			isHandle = true;
@@ -37,20 +37,20 @@ $.fn.sortable = function(options) {
 			if (options.handle && !isHandle) {
 				return false;
 			}
+          
 			isHandle = false;
 			var dt = e.originalEvent.dataTransfer;
 			dt.effectAllowed = 'move';
 			dt.setData('Text', 'dummy');
 			index = (dragging = $(this)).addClass('sortable-dragging').index();
+            dragging.parent().trigger('sortstart', {item: dragging})
 		}).on('dragend.h5s', function() {
 			if (!dragging) {
 				return;
 			}
 			dragging.removeClass('sortable-dragging').show();
 			placeholders.detach();
-			if (index != dragging.index()) {
-				dragging.parent().trigger('sortupdate', {item: dragging});
-			}
+		    dragging.parent().trigger('sortupdate', {item: dragging});
 			dragging = null;
 		}).not('a[href], img').on('selectstart.h5s', function() {
 			this.dragDrop && this.dragDrop();
@@ -74,7 +74,7 @@ $.fn.sortable = function(options) {
 				dragging.hide();
 				$(this)[placeholder.index() < $(this).index() ? 'after' : 'before'](placeholder);
 				placeholders.not(placeholder).detach();
-			} else if (!placeholders.is(this) && !$(this).children(options.items).length) {
+			} else if (!placeholders.is(this) && !$(this).find(options.items).length) {
 				placeholders.detach();
 				$(this).append(placeholder);
 			}

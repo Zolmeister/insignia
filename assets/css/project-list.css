@@ -2,7 +2,7 @@
 .projects {
   padding: 1%;
 }
-.project {
+.project, .sortable-placeholder {
   margin: 10px;
   position: relative;
 }
@@ -59,7 +59,7 @@
 }
 
 /* non-image projects */
-.projects-other .project {
+.projects-other .project, .projects-other .sortable-placeholder {
   padding: 10px;
   background: #34495e;
   color: #ecf0f1;
@@ -107,16 +107,26 @@
   display: inline-block;
 }
 
-.projects-main-edit .project {
+.projects-feature-edit .project, .projects-feature-edit .sortable-placeholder {
+  display: inline-block;
+  width: 96%;
+  margin: 1%;
+  padding: 1%;
+}
+
+.projects-main-edit .project, .projects-main-edit .sortable-placeholder {
   display: inline-block;
   width: 46%;
   margin: 1%;
   padding: 1%;
 }
 
-.projects-other-edit .project {
+.projects-other-edit .project, .projects-other-edit .sortable-placeholder {
   display: inline-block;
-  width: 26%;
+  width: 27%;
   margin: 1%;
   padding: 1%;
+}
+.sortable-placeholder {
+  background: rgba(0,0,0,0) !important;
 }

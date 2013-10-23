@@ -3,8 +3,8 @@
   <h2 class='projects-section-title'>Featured</h2>
   <button class='pure-button pure-button-small pure-button-success' ng-click='newProject("featured")'>add</button>
   <br>
-  <div class='projects-other'>
-    <div class='project' ng-repeat='project in projects | filter:{displayType: "featured"}'>
+  <div class='projects-other projects-feature-edit' type='featured'>
+    <div class='project' ng-repeat='project in projects | filter:{displayType: "featured"} | orderBy:"index"' _id='{{ project.id }}'>
       <div class='project-info'>
         <div class='project-title'>{{ project.title }}</div>
         <div class='project-desc'>{{ project.desc }}</div>
@@ -22,8 +22,8 @@
   <h2 class='projects-section-title'>Main</h2>
   <button class='pure-button pure-button-small pure-button-success' ng-click='newProject("main")'>add</button>
   <br>
-  <div class='projects-other projects-main-edit'>
-    <div class='project' ng-repeat='project in projects | filter:{displayType: "main"}'>
+  <div class='projects-other projects-main-edit' type='main'>
+    <div class='project' ng-repeat='project in projects | filter:{displayType: "main"} | orderBy:"index"' _id='{{ project.id }}'>
       <div class='project-info'>
         <div class='project-title'>{{ project.title }}</div>
         <div class='project-desc'>{{ project.desc }}</div>
@@ -41,8 +41,8 @@
   <h2 class='projects-section-title'>Other</h2>
   <button class='pure-button pure-button-small pure-button-success' ng-click='newProject("other")'>add</button>
   <br>
-  <div class='projects-other projects-other-edit'>
-    <div class='project' ng-repeat='project in projects | filter:{displayType: "other"}'>
+  <div class='projects-other projects-other-edit' type='other'>
+    <div class='project' ng-repeat='project in projects | filter:{displayType: "other"} | orderBy:"index"' _id='{{ project.id }}'>
       <div class='project-info'>
         <div class='project-title'>{{ project.title }}</div>
         <div class='project-desc'>{{ project.desc }}</div>
