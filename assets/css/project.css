@@ -20,8 +20,8 @@
 }
 .project-view .project-desc {
   padding: 2px;
-  font-variant: small-caps;
   font-size: 1.2em;
+  font-weight: 300;
 }
 .project-view {
   padding: 0 16%;
