@@ -73,13 +73,6 @@ angular.module('showcase.directives', ['MD5.service'])
      window.setTimeout(bindSort, 100)
     }
   })
-  .directive('maxheight', function(){
-    return function(scope, $el, attrs) {
-      //scope.$watch(function() {
-      //  console.log('maxheight', $el, $el.height())
-      //})
-    }
-  })
 
 angular.module('gravatar.directive', ['MD5.service'])
   .directive('gravatarImage', ['MD5', function(MD5) {

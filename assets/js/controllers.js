@@ -3,8 +3,16 @@
 /* Controllers */
 
 angular.module('showcase.controllers', [])
-  .controller('ProjectsCtrl', ['$scope', '$routeParams', 'Project', '$location', '$rootScope', 
-    function($scope, $routeParams, Project, $location, $rootScope) {
+  .controller('ProjectsCtrl', ['$scope', '$routeParams', 'Project', '$location', '$route', '$rootScope', 'LoginService', 
+    function($scope, $routeParams, Project, $location, $route, $rootScope, LoginService) {
+      
+    if($route.current.access && $route.current.access.admin && !LoginService.isAdmin) {
+      LoginService.update(function(isAdmin) {
+        if(!isAdmin) {
+          $location.path('/login')
+        }
+      })
+    }
       
     $scope.newProject = function(type) {
       $scope.go('/admin/new/'+type, null)
@@ -208,4 +216,16 @@ angular.module('showcase.controllers', [])
     }
     
     $scope.$location = $location
+  }]).controller('LoginCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
+  
+    $scope.login = function() {
+      $http.post('/user/login', {username: $scope.username, password: $scope.password}).then(function(res) {
+        if(res.data.success) {
+          $location.path('/admin')
+        } else {
+          $scope.password = ''
+        }
+      })
+    }
+    
   }])

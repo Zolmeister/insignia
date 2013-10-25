@@ -120,3 +120,7 @@ input:focus, textarea:focus {
   -moz-perspective: 1200px;
   perspective: 1200px;
 }
+
+.login-form {
+  padding: 20px;
+}

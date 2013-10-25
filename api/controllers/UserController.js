@@ -17,7 +17,40 @@
 
 module.exports = {
     
+  login: function(req, res) {
+    var username = req.param('username')
+    var password = req.param('password')
+    
+    // set in config/local.js - not commited to source
+    var success = username === sails.config.admin.username && password === sails.config.admin.password
+    
+    // prevent a timing attack
+    setTimeout(function() {
+      if(success) {
+        req.session.isAdmin = true
+        return res.json({
+          success: true
+        })
+      }
+      
+      return res.json({
+        success: false
+      })
+    }, 10)
+  },
   
+  logout: function(req, res) {
+    req.session.isAdmin = false
+    res.json({
+      success: true
+    })
+  },
+  
+  isAdmin: function(req, res) {
+    res.json({
+      isAdmin: !!req.session.isAdmin
+    })
+  },
 
 
   /**

@@ -21,6 +21,22 @@ angular.module('showcase.services', ['ngResource'])
       update: {method: 'PUT'}
     })
   }])
+  .factory('LoginService', ['$http', function($http) {
+    var auth = {
+      isAdmin: false
+    }
+    
+    auth.update = function(cb) {
+      $http.get('/user/isAdmin').then(function(res) {
+        auth.isAdmin = !!res.data.isAdmin
+        cb && cb(auth.isAdmin)
+      })
+    }
+    
+    auth.update()
+    
+    return auth
+  }])
 
 angular.module('MD5.service', [])
   .factory('MD5', function() {

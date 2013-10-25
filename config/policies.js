@@ -16,7 +16,22 @@ module.exports.policies = {
 
   // Default policy for all controllers and actions
   // (`true` allows public access) 
-  '*': true
+  '*': ['angularCSRF', 'isAdmin'],
+  UserController: {
+    '*': ['angularCSRF', 'isAdmin'],
+    isAdmin: 'angularCSRF',
+    find: 'angularCSRF',
+    login: 'angularCSRF',
+  },
+  ProjectController: {
+    '*': ['angularCSRF', 'isAdmin'],
+    find: 'angularCSRF'
+  },
+  uploadController: {
+    '*': ['angularCSRF', 'isAdmin'],
+    getImg: 'angularCSRF'
+  }
+  
 
   /*
 	// Here's an example of adding some policies to a controller

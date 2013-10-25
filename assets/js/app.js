@@ -23,13 +23,25 @@ config(['$routeProvider', function($routeProvider) {
     controller: 'ProjectViewCtrl'
   }).when('/admin', {
     templateUrl: 'partials/projects-edit.html',
-    controller: 'ProjectsCtrl'
+    controller: 'ProjectsCtrl',
+    access: {
+      admin: true
+    }
   }).when('/admin/edit/:title', {
     templateUrl: 'partials/project-view-edit.html',
-    controller: 'ProjectViewCtrl'
+    controller: 'ProjectViewCtrl',
+    access: {
+      admin: true
+    }
   }).when('/admin/new/:type', {
     templateUrl: 'partials/project-view-edit.html',
-    controller: 'ProjectViewCtrl'
+    controller: 'ProjectViewCtrl',
+    access: {
+      admin: true
+    }
+  }).when('/login', {
+    templateUrl: 'partials/login.html',
+    controller: 'LoginCtrl'
   })
   .otherwise({redirectTo: '/'});
 }]);
