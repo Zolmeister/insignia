@@ -4,7 +4,7 @@
 
 
 angular.module('showcase.directives', ['MD5.service'])
-  .directive('autoScrollTo', function() {
+  .directive('autoScrollTo', function($window) {
     return function(scope, $el, attrs){
       if(attrs.autoScrollTo === 'true') {
         
@@ -13,8 +13,8 @@ angular.module('showcase.directives', ['MD5.service'])
           $('html, body').animate({
               scrollTop: $el.offset().top
           }, 500);
-        }, 0)
-        
+          $('body').css('min-height', $('.projects').offset().top + $('.projects').height()+'px')
+        }, 100)
       }
     }
   })
@@ -71,6 +71,13 @@ angular.module('showcase.directives', ['MD5.service'])
      }
       
      window.setTimeout(bindSort, 100)
+    }
+  })
+  .directive('maxheight', function(){
+    return function(scope, $el, attrs) {
+      //scope.$watch(function() {
+      //  console.log('maxheight', $el, $el.height())
+      //})
     }
   })
 
