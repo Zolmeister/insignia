@@ -2,17 +2,17 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('showcase', [
+angular.module('insignia', [
   'ngRoute',
   'ngAnimate',
   'ngTouch',
   'angularFileUpload',
   'MD5.service', 
   'gravatar.directive',
-  'showcase.filters',
-  'showcase.services',
-  'showcase.directives',
-  'showcase.controllers'
+  'insignia.filters',
+  'insignia.services',
+  'insignia.directives',
+  'insignia.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/', {

@@ -3,7 +3,7 @@
 /* Directives */
 
 
-angular.module('showcase.directives', ['MD5.service'])
+angular.module('insignia.directives', ['MD5.service'])
   .directive('autoScrollTo', function($window) {
     return function(scope, $el, attrs){
       if(attrs.autoScrollTo === 'true') {

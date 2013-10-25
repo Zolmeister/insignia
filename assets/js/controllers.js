@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('showcase.controllers', [])
+angular.module('insignia.controllers', [])
   .controller('ProjectsCtrl', ['$scope', '$routeParams', 'Project', '$location', '$route', '$rootScope', 'LoginService', 
     function($scope, $routeParams, Project, $location, $route, $rootScope, LoginService) {
       
