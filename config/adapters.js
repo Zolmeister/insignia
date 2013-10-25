@@ -26,7 +26,7 @@ module.exports.adapters = {
   
   mongo: {
     module: 'sails-mongo',
-    database: 'insignia'
+    url: 'mongodb://localhost/insignia'
   },
 
   // MySQL is the world's most popular relational database.
