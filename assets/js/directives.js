@@ -70,7 +70,7 @@ angular.module('insignia.directives', ['MD5.service'])
         
      }
       
-     window.setTimeout(bindSort, 500)
+     window.setTimeout(bindSort, 1000)
     }
   })
 
