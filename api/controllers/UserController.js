@@ -15,28 +15,41 @@
  * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
+var crypto = require('crypto')
+var adminUsername = null
+var adminPassword = null
+
+// TODO: fix this hack
+setTimeout(function() {
+  adminUsername = crypto.createHash('sha1').update(sails.config.admin.username).digest('hex')
+  adminPassword = crypto.createHash('sha1').update(sails.config.admin.password).digest('hex')
+}, 2000)
+
+
 module.exports = {
     
   login: function(req, res) {
     var username = req.param('username')
     var password = req.param('password')
     
-    // set in config/local.js - not commited to source
-    var success = username === sails.config.admin.username && password === sails.config.admin.password
-    
-    // prevent a timing attack
-    setTimeout(function() {
-      if(success) {
-        req.session.isAdmin = true
-        return res.json({
-          success: true
-        })
-      }
+    // constant time string comparison to prevent timing attack
+    username = crypto.createHash('sha1').update(username).digest('hex')
+    password = crypto.createHash('sha1').update(password).digest('hex')
       
+    
+    // set in config/local.js - not commited to source
+    var success = username === adminUsername && password === adminPassword
+    
+    if(success) {
+      req.session.isAdmin = true
       return res.json({
-        success: false
+        success: true
       })
-    }, 10)
+    }
+    
+    return res.json({
+      success: false
+    })
   },
   
   logout: function(req, res) {
