@@ -354,7 +354,7 @@ angular.module('insignia.directives', ['MD5.service'])
         
      }
       
-     window.setTimeout(bindSort, 1000)
+     window.setTimeout(bindSort, 500)
     }
   })
 
