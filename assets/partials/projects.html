@@ -1,7 +1,7 @@
 <div ng-if='projects' class='projects'>
   <div class='projects-featured'>
     <div class='project' auto-scroll-to="{{fromProject === project.title}}" ng-repeat='project in projects | filter:{displayType: "featured"}'>
-      <img class='project-image' ng-src='/project/{{ project.title }}/img/feature'>
+      <img class='project-image' ng-src='/project/{{ project.imgId }}/img/feature'>
       <div class='overlay' ng-click='go("/project/{{ project.title }}", "{{ project.title }}")'>
         <div class='project-title'>{{ project.title }}</div>
         <div class='project-desc'>{{ project.desc || '&nbsp;' }}</div>
@@ -11,7 +11,7 @@
   <div class='pure-g projects-main'>
     <div class='pure-u-1-2' auto-scroll-to="{{fromProject === project.title}}" ng-repeat='project in projects | filter:{displayType: "main"}'>
       <div class='project'>
-        <img class='project-image' ng-src='/project/{{ project.title }}/img/tile'>
+        <img class='project-image' ng-src='/project/{{ project.imgId }}/img/tile'>
         <div class='overlay' ng-click='go("/project/{{ project.title }}", "{{ project.title }}")'>
           <div class='project-title'>{{ project.title }}</div>
           <div class='project-desc'>{{ project.desc || '&nbsp;' }}</div>
