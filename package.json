@@ -22,7 +22,8 @@
     "karma": "*",
     "karma-junit-reporter": "*",
     "karma-jasmine": "*",
-    "karma-ng-scenario": "*"
+    "karma-ng-scenario": "*",
+    "grunt-contrib-compress": "~0.5.2"
   },
   "main": "app.js",
   "repository": "",

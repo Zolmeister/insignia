@@ -133,7 +133,7 @@ module.exports = function (grunt) {
   grunt.loadTasks(depsPath + '/grunt-contrib-cssmin/tasks');
   grunt.loadTasks(depsPath + '/grunt-contrib-less/tasks');
   grunt.loadTasks(depsPath + '/grunt-contrib-coffee/tasks');
-
+  
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -226,27 +226,63 @@ module.exports = function (grunt) {
     },
 
     concat: {
-      js: {
-        src: jsFilesToInject,
-        dest: '.tmp/public/concat/production.js'
+      prod: {
+        js: {
+          src: jsFilesToInject,
+          dest: '.tmp/public/concat/production.js'
+        },
+        css: {
+          src: cssFilesToInject,
+          dest: '.tmp/public/concat/production.css'
+        }
       },
-      css: {
-        src: cssFilesToInject,
-        dest: '.tmp/public/concat/production.css'
+      buildLib: {
+        src: 'assets/lib/**/*.js',
+        dest: 'assets/dist/lib-concat.js'
+      },
+      buildApp: {
+        src: 'assets/js/**/*.js',
+        dest: 'assets/dist/app-concat.js'
+      },
+      buildCss: {
+        src: 'assets/css/**/*.css',
+        dest: 'assets/dist/styles-concat.css'
       }
     },
 
     uglify: {
-      dist: {
-        src: ['.tmp/public/concat/production.js'],
-        dest: '.tmp/public/min/production.js'
+      prod: {
+        dist: {
+          src: ['.tmp/public/concat/production.js'],
+          dest: '.tmp/public/min/production.js'
+        }
+      },
+      buildLib: {
+        options: {
+          sourceMap: 'assets/dist/lib.js.map'
+        },
+        src: 'assets/dist/lib-concat.js',
+        dest: 'assets/dist/lib.js'
+      },
+      buildApp: {
+        options: {
+          sourceMap: 'assets/dist/app.js.map'
+        },
+        src: 'assets/dist/app-concat.js',
+        dest: 'assets/dist/app.js'
       }
     },
 
     cssmin: {
-      dist: {
-        src: ['.tmp/public/concat/production.css'],
-        dest: '.tmp/public/min/production.css'
+      prod: {
+        dist: {
+          src: ['.tmp/public/concat/production.css'],
+          dest: '.tmp/public/min/production.css'
+        }
+      },
+      build: {
+        src: 'assets/dist/styles-concat.css',
+        dest: 'assets/dist/styles.css'
       }
     },
 
@@ -412,6 +448,15 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.registerTask('build', [
+    'concat:buildLib',
+    'concat:buildApp',
+    'concat:buildCss',
+    'uglify:buildLib',
+    'uglify:buildApp',
+    'cssmin:build'
+  ]);
+  
   // When Sails is lifted:
   grunt.registerTask('default', [
     'compileAssets',
@@ -441,12 +486,12 @@ module.exports = function (grunt) {
 
   // Build the assets into a web accessible folder.
   // (handy for phone gap apps, chrome extensions, etc.)
-  grunt.registerTask('build', [
+  /*grunt.registerTask('build', [
     'compileAssets',
     'linkAssets',
     'clean:build',
     'copy:build'
-  ]);
+  ]);*/
 
   // When sails is lifted in production
   grunt.registerTask('prod', [
@@ -455,9 +500,9 @@ module.exports = function (grunt) {
     'less:dev',
     'copy:dev',
     'coffee:dev',
-    'concat',
-    'uglify',
-    'cssmin',
+    'concat:prod',
+    'uglify:prod',
+    'cssmin:prod',
     'sails-linker:prodJs',
     'sails-linker:prodStyles',
     'sails-linker:devTpl',

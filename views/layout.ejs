@@ -10,35 +10,43 @@
     <!-- TODO: host locally -->
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="css/project.css">
-    <link rel="stylesheet" href="css/project-list.css">
-    <link rel="stylesheet" href="css/animation.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+    
+    <% if(sails.config.environment === 'production') { %>
+      <link rel="stylesheet" href="dist/styles.css">
+    <% } else { %>
+      <link rel="stylesheet" href="css/app.css">
+      <link rel="stylesheet" href="css/project.css">
+      <link rel="stylesheet" href="css/project-list.css">
+      <link rel="stylesheet" href="css/animation.css">
+    <% } %>
   </head>
   
   <body ng-app="insignia">
-  
     <!-- Include the view file for the current controller/route -->
     <%- body %>
     
-    <!-- In production use:
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-    -->
-    <script src='lib/lodash.js'></script>
-    <script src='http://code.jquery.com/jquery-1.10.2.js'></script>
-    <script src="lib/angular/angular.js"></script>
-    <script src="lib/angular/angular-route.js"></script>
-    <script src="lib/angular/angular-touch.js"></script>
-    <script src="lib/angular/angular-cookies.js"></script>
-    <script src="http://code.angularjs.org/1.2.0-rc.2/angular-resource.js"></script>
-    <script src='http://code.angularjs.org/1.2.0rc1/angular-animate.js'></script>
-    <script src='lib/angular/angular-file-upload.js'></script>
-    <script src='lib/jquery.sortable.js'></script>
-    <script src="js/app.js"></script>
-    <script src="js/services.js"></script>
-    <script src="js/controllers.js"></script>
-    <script src="js/filters.js"></script>
-    <script src="js/directives.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    <% if(sails.config.environment === 'production') { %>
+      <script src='dist/lib.js'></script>
+      <script src='dist/app.js'></script>
+    <% } else { %>
+      <script src='lib/lodash.js'></script>
+      <script src="lib/angular/angular.js"></script>
+      <script src="lib/angular/angular-route.js"></script>
+      <script src="lib/angular/angular-touch.js"></script>
+      <script src="lib/angular/angular-cookies.js"></script>
+      <script src="lib/angular/angular-resource.js"></script>
+      <script src='lib/angular/angular-animate.js'></script>
+      <script src='lib/angular/angular-file-upload.js'></script>
+      <script src='lib/jquery.sortable.js'></script>
+      <script src="js/app.js"></script>
+      <script src="js/services.js"></script>
+      <script src="js/controllers.js"></script>
+      <script src="js/filters.js"></script>
+      <script src="js/directives.js"></script>
+    <% } %>
   </body>
 </html>

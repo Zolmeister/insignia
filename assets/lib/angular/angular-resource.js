@@ -71,28 +71,28 @@ var $resourceMinErr = angular.$$minErr('$resource');
  *
  *   Where:
  *
- *   - **`action`** – {string} – The name of action. This name becomes the name of the method on your
+ *   - **`action`** â€“ {string} â€“ The name of action. This name becomes the name of the method on your
  *     resource object.
- *   - **`method`** – {string} – HTTP request method. Valid methods are: `GET`, `POST`, `PUT`, `DELETE`,
+ *   - **`method`** â€“ {string} â€“ HTTP request method. Valid methods are: `GET`, `POST`, `PUT`, `DELETE`,
  *     and `JSONP`.
- *   - **`params`** – {Object=} – Optional set of pre-bound parameters for this action. If any of the
+ *   - **`params`** â€“ {Object=} â€“ Optional set of pre-bound parameters for this action. If any of the
  *     parameter value is a function, it will be executed every time when a param value needs to be
  *     obtained for a request (unless the param was overridden).
- *   - **`url`** – {string} – action specific `url` override. The url templating is supported just like
+ *   - **`url`** â€“ {string} â€“ action specific `url` override. The url templating is supported just like
  *     for the resource-level urls.
- *   - **`isArray`** – {boolean=} – If true then the returned object for this action is an array, see
+ *   - **`isArray`** â€“ {boolean=} â€“ If true then the returned object for this action is an array, see
  *     `returns` section.
- *   - **`transformRequest`** – `{function(data, headersGetter)|Array.<function(data, headersGetter)>}` –
+ *   - **`transformRequest`** â€“ `{function(data, headersGetter)|Array.<function(data, headersGetter)>}` â€“
  *     transform function or an array of such functions. The transform function takes the http
  *     request body and headers and returns its transformed (typically serialized) version.
- *   - **`transformResponse`** – `{function(data, headersGetter)|Array.<function(data, headersGetter)>}` –
+ *   - **`transformResponse`** â€“ `{function(data, headersGetter)|Array.<function(data, headersGetter)>}` â€“
  *     transform function or an array of such functions. The transform function takes the http
  *     response body and headers and returns its transformed (typically deserialized) version.
- *   - **`cache`** – `{boolean|Cache}` – If true, a default $http cache will be used to cache the
+ *   - **`cache`** â€“ `{boolean|Cache}` â€“ If true, a default $http cache will be used to cache the
  *     GET request, otherwise if a cache instance built with
  *     {@link ng.$cacheFactory $cacheFactory}, this cache will be used for
  *     caching.
- *   - **`timeout`** – `{number|Promise}` – timeout in milliseconds, or {@link ng.$q promise} that
+ *   - **`timeout`** â€“ `{number|Promise}` â€“ timeout in milliseconds, or {@link ng.$q promise} that
  *     should abort the request when resolved.
  *   - **`withCredentials`** - `{boolean}` - whether to to set the `withCredentials` flag on the
  *     XHR object. See {@link https://developer.mozilla.org/en/http_access_control#section_5
