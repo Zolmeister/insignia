@@ -31,20 +31,20 @@
     <!-- project links -->
     <div class='pure-g-r project-links'>
       <div class='pure-u-1-3'>
-        <div ng-if='project.pubLink' class='project-link'>
-          <i class='icon-external-link'></i>
+        <div class='project-link'>
+          <span>Public Link</span>
           <input type='text' ng-model='project.pubLink'>
         </div>
       </div>
       <div class='pure-u-1-3'>
-        <div ng-if='project.blogLink' class='project-link'>
-          <i class='icon-rss'></i>
+        <div class='project-link'>
+          <span>Blog Post</span>
           <input type='text' ng-model='project.blogLink'>
         </div>
       </div>
       <div class='pure-u-1-3'>
-        <div ng-if='project.gitHubLink' class='project-link'>
-          <i class='icon-github'></i>
+        <div class='project-link'>
+          <span>GitHub Link</span>
           <input type='text' ng-model='project.gitHubLink'>
         </div>
       </div>
@@ -72,8 +72,8 @@
         <label class='pure-button pure-button-remove pure-button-remove-small ' ng-click='removeTech(tech)'>
           <i class='icon-remove'></i>
         </label>
-        <input type='text' value='{{ tech.name }}' size=8>
-        <input type='text' value='{{ tech.link }}'>
+        <input type='text' ng-model='tech.name' size=8>
+        <input type='text' ng-model='tech.link'>
       </div>
       <!-- <a class='pure-button pure-button-tech' target='_blank' href='{{ tech.link }}' ng-repeat='tech in project.technologies'>{{ tech.name }}</a>-->
     </div>
