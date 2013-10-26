@@ -84,6 +84,7 @@ angular.module('insignia.controllers', [])
           desc: '',
           about: '',
           displayType: type,
+          hideImage: false,
           technologies: [],
           pubLink: '',
           blogLink: '',
