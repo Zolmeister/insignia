@@ -52,6 +52,11 @@ module.exports = {
   },
 
   getImg: function(req, res) {
+    var oneWeek = 7*24*60*60 // seconds
+    if(sails.config.environment === 'production')
+      if (!res.getHeader('Cache-Control'))
+        res.setHeader('Cache-Control', 'public, max-age=' + oneWeek)
+        
     var project = req.param('title')
     var size = req.param('size')
     
