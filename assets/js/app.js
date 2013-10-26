@@ -6,6 +6,7 @@ angular.module('insignia', [
   'ngRoute',
   'ngAnimate',
   'ngTouch',
+  'ngCookies',
   'angularFileUpload',
   'MD5.service', 
   'gravatar.directive',

@@ -16,7 +16,13 @@
  */
 
 var gridjs = require('gridjs')
-var gs = gridjs('mongodb://localhost/insignia')
+var gs = null //gridjs(sails.config.adapters.mongo.url)
+
+// TODO: fix this hack
+setTimeout(function(){
+  gs = gridjs(sails.config.adapters.mongo.url)
+}, 2000)
+
 var fs = require('fs')
 var domain = require('domain')
 var imgPlaceholder = {

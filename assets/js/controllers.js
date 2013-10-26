@@ -68,8 +68,8 @@ angular.module('insignia.controllers', [])
     $scope.$on('sortupdate', $scope.save)
     
   }])
-  .controller('ProjectViewCtrl', ['$scope', '$routeParams', 'Project', '$location', '$rootScope', '$http',
-    function($scope, $routeParams, Project, $location, $rootScope, $http) {
+  .controller('ProjectViewCtrl', ['$scope', '$routeParams', 'Project', '$location', '$rootScope', '$http', '$cookies',
+    function($scope, $routeParams, Project, $location, $rootScope, $http, $cookies) {
       
       $scope.updateSuccess = false
       
@@ -105,6 +105,9 @@ angular.module('insignia.controllers', [])
       $scope.onFileSelect = function($files, size) {
         var $file = $files[0]
         $http.uploadFile({
+          headers: {
+            'X-XSRF-TOKEN': $cookies['XSRF-TOKEN']
+          },
           url: 'project/'+$scope.project.imgId+'/upload/'+size,
           file: $file
         }).then(function(data, status, headers, config) {
