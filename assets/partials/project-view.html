@@ -8,7 +8,9 @@
   <!-- project title and image -->
   <h2 class='project-title'>{{project.title}}</h2>
   <div class='project-image-container'>
-    <img ng-if='!project.hideImage' class='project-image'  ng-src='/project/{{ project.imgId }}/img/main'>
+    <div ng-if='!project.hideImage' class='project-image project-image-tile'>
+      <img class='project-image-src'  ng-src='/project/{{ project.imgId }}/img/main'>
+    </div>
     <span class='project-desc'>{{project.desc}}</span>
   </div>
   

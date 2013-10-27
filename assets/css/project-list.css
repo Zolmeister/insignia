@@ -5,12 +5,30 @@
 .project, .sortable-placeholder {
   margin: 10px;
   position: relative;
+  font-family: 'Lato', sans-serif;
 }
 .project-image {
   border-radius: 3px;
-  height: auto;
+  height: 0;
   width: 100%;
   display: block;
+  position: relative;
+}
+.project-image-feature {
+  padding-top: 41.8%;
+}
+.project-image-tile {
+  padding-top: 61.8%;
+}
+.project-image-main {
+  height: auto;
+}
+.project-image-src {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-radius:3px;
 }
 
 /* image overlay */
@@ -36,6 +54,9 @@
 }
 .overlay .project-desc {
   font-size: 2em;
+  
+}
+.project-desc {
   font-weight: 300;
 }
 .overlay > div {
@@ -49,10 +70,17 @@
   .overlay {
     font-size: 0.9em;
   }
+  .project {
+    margin: 2px;
+    font-size: 0.8em;
+  }
 }
 @media all and (max-width: 520px) {
   .overlay {
     font-size: 0.8em;
+  }
+  .project {
+    font-size: 0.7em;
   }
 }
 @media all and (max-width: 380px) {
