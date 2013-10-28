@@ -2,7 +2,7 @@
 
 [![Insignia](https://raw.github.com/Zolmeister/insignia/master/assets/img/screenshot-680-420.png)](http://insignia.zolmeister.com)
 
-### A personal showcase for sharing and tracking personal projects
+### A personal showcase for sharing and tracking projects
 
 ## Setup
 ```bash
