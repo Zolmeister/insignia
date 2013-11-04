@@ -39,8 +39,6 @@ input:focus, textarea:focus {
   border-color: #2980b9;
 }
 
-
-
 .pure-button-remove {
   background: #e74c3c;
   color: #ecf0f1;
@@ -66,7 +64,7 @@ input:focus, textarea:focus {
 }
 .title {
   font-size: 4em;
-  text-shadow: 1px 4px 6px #ecf0f1, 0 0 0 #000, 1px 4px 6px #ecf0f1;
+  text-shadow: 1px 2px 4px #ecf0f1, 0 0 0 #000, 1px 2px 4px #ecf0f1;
   color: rgba(34,34,34, 0.8);
   margin-bottom: 0;
 }
