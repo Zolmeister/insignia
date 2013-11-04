@@ -15,6 +15,8 @@ body {
   min-height: 100%;
   text-align: center;
   margin-bottom: 20px;
+  box-shadow: 0 0 10px;
+  border-radius: 3px;
 }
 .center-color {
   background: #ecf0f1;
@@ -46,6 +48,10 @@ input:focus, textarea:focus {
 }
 
 /* title bar */
+.menu {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
 .menu-save-button-container {
   margin-bottom: 10px;
 }
@@ -69,6 +75,7 @@ input:focus, textarea:focus {
   position: absolute;
   top: 0;
   left: 0;
+  border-top-left-radius: 3px;
 }
 .name {
   margin: 10px auto;  
@@ -112,8 +119,10 @@ input:focus, textarea:focus {
 
 /* base project animation */
 .flipper {
-    position: absolute;
-    width: 100%;
+  position: absolute;
+  width: 100%;
+  box-shadow: 0 0 10px;
+  z-index: -1;
 }
 .backdrop {
   -webkit-perspective: 1200px;
