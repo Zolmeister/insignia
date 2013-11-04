@@ -1,8 +1,11 @@
 /* app css stylesheet */
 
+::-moz-selection { background: #5af; color: #fff; text-shadow: none; }
+::selection { background: #5af; color: #fff; text-shadow: none; }
+
 /* background */
 body {
-  background: #2980b9;
+  background: #222;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
 }
@@ -62,7 +65,9 @@ input:focus, textarea:focus {
   background: #27ae60;
 }
 .title {
-  font-size: 3em;
+  font-size: 4em;
+  text-shadow: 1px 4px 6px #ecf0f1, 0 0 0 #000, 1px 4px 6px #ecf0f1;
+  color: rgba(34,34,34, 0.8);
   margin-bottom: 0;
 }
 .editing .title {
@@ -75,10 +80,10 @@ input:focus, textarea:focus {
   position: absolute;
   top: 0;
   left: 0;
-  border-top-left-radius: 3px;
+  border-top-left-radius: 2px;
 }
 .name {
-  margin: 10px auto;  
+  margin: 0px auto;  
   font-weight: 300;
 }
 .editing .name {

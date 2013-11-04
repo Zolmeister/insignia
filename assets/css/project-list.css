@@ -3,7 +3,7 @@
   padding: 1%;
 }
 .project, .sortable-placeholder {
-  margin: 10px;
+  margin: 2px;
   position: relative;
   font-family: 'Lato', sans-serif;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -74,7 +74,6 @@
     font-size: 0.9em;
   }
   .project {
-    margin: 2px;
     font-size: 0.8em;
   }
 }
@@ -95,7 +94,7 @@
 /* non-image projects */
 .projects-other .project, .projects-other .sortable-placeholder {
   padding: 10px;
-  background: #27ae60;
+  background: #0b4297;
   color: #ecf0f1;
   border-radius: 3px;
   text-align: left;
@@ -106,7 +105,7 @@
   font-size: 1.5em;
 }
 .projects-other .project:hover {
-  background: #2ecc71;
+  background: #0D54C0;
   transition: background 0.5s;
 }
 
