@@ -82,7 +82,8 @@ input:focus, textarea:focus {
 }
 .name {
   margin: 0px auto;  
-  font-weight: 300;
+  font-weight: 400;
+  display: inline-block;
 }
 .editing .name {
   margin: 10px auto;

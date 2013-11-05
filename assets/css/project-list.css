@@ -41,16 +41,13 @@
   top: 0;
   left: 0;
   border-radius: 3px;
-  background: rgba(230, 126, 34, 0.8);
+  background: rgba(34, 34, 34, 0.8);
   width: 100%;
   height: 100%;
   transition: opacity 0.5s;
   text-align: left;
   color: #ecf0f1;
   cursor: pointer;
-}
-.projects-featured .overlay {
-  background: rgba(192, 57, 43, 0.8);
 }
 .overlay .project-title {
   font-size: 4em;
