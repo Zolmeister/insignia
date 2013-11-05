@@ -9,7 +9,9 @@
   <h2 class='project-title'>{{project.title}}</h2>
   <div class='project-image-container'>
     <div ng-if='!project.hideImage' class='project-image project-image-tile'>
-      <img class='project-image-src'  ng-src='/project/{{ project.imgId }}/img/main'>
+      <a href='{{ project.blogLink || project.pubLink || project.gitHubLink }}'>
+        <img class='project-image-src'  ng-src='/project/{{ project.imgId }}/img/main'>
+      </a>
     </div>
     <span class='project-desc'>{{project.desc}}</span>
   </div>
