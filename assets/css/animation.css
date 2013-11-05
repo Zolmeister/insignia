@@ -4,7 +4,9 @@
   -moz-transition:.5s ease-in opacity;
   -o-transition:.5s ease-in opacity;
   transition:.5s ease-in opacity;
-
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
 }
 .flipper.ng-leave {
   -webkit-transition-delay:0.2s;
