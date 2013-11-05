@@ -2,7 +2,7 @@
 
 [![Insignia](https://raw.github.com/Zolmeister/insignia/master/assets/img/screenshot-680-420.png)](http://insignia.zolmeister.com)
 
-### A personal showcase for sharing and tracking personal projects
+### A personal showcase for sharing and tracking projects
 
 ## Setup
 ```bash
@@ -30,8 +30,9 @@ module.exports = {
 }
 ```
 ## Admin
-Browse to http://localhost/#/login
+Browse to http://localhost:3000/#/login
 and login using the config credentials  
-Drag and drop elements to move them around, drag and drop images onto the target images for upload.
+Drag and drop elements to move them around, drag and drop images onto the target images for upload.  
+For production deployment (to Heroku for example) run `grunt build` before pushing
 [![Insignia](https://raw.github.com/Zolmeister/insignia/master/assets/img/screenshot-admin-680-420.png)](http://insignia.zolmeister.com)
 [![Insignia](https://raw.github.com/Zolmeister/insignia/master/assets/img/screenshot-edit-680-420.png)](http://insignia.zolmeister.com)
