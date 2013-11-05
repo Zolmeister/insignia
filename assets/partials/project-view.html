@@ -6,14 +6,13 @@
 <div ng-if='project' class='project-view'>
   
   <!-- project title and image -->
-  <h2 class='project-title'>{{project.title}}</h2>
+  <h2 class='project-title'>{{project.title}} <span class='project-desc'>{{project.desc}}</span></h2>
   <div class='project-image-container'>
     <div ng-if='!project.hideImage' class='project-image project-image-tile'>
       <a href='{{ project.blogLink || project.pubLink || project.gitHubLink }}'>
         <img class='project-image-src'  ng-src='/project/{{ project.imgId }}/img/main'>
       </a>
     </div>
-    <span class='project-desc'>{{project.desc}}</span>
   </div>
   
   <!-- project links -->
@@ -21,14 +20,17 @@
     <div class='pure-u-1-3'>
       <div ng-if='project.pubLink' class='project-link'>
         <i class='icon-external-link'></i>
-        <a href='{{ project.pubLink }}'>Application</a>
+        <a href='{{ project.pubLink }}'>{{ project.pubLink.length > 18 + 'http://'.length ?
+            project.pubLink.replace('http://','').substr(0,15)+'...'
+          : project.pubLink.replace('http://','')
+          }}</a>
       </div>
     </div>
     
     <div class='pure-u-1-3'>
       <div ng-if='project.blogLink' class='project-link'>
         <i class='icon-rss'></i>
-        <a href='{{ project.blogLink }}'>Blog Post</a>
+        <a href='{{ project.blogLink }}'>More Info</a>
       </div>
     </div>
     
@@ -44,19 +46,23 @@
   <div class='project-about'>
     {{ project.about }}
   </div>
-  
-  <!-- project key features -->
-  <h3 class='project-info-header'>Key Features</h3>
-  <ul class='project-key-features'>
-    <li ng-repeat='feature in project.features'>
-      {{ feature.value }}
-    </li>
-  </ul>
-  
-  <!-- project technologies -->
-  <h3 class='project-info-header'>Technologies used</h3>
-  <div class='project-technologies'>
-    <a class='pure-button pure-button-tech' target='_blank' href='{{ tech.link }}' ng-repeat='tech in project.technologies'>{{ tech.name }}</a>
+  <div class='pure-g-r'>
+    <div class='pure-u-1-2'>
+      <!-- project key features -->
+      <h3 class='project-info-header'>Key Features</h3>
+      <ul class='project-key-features'>
+        <li ng-repeat='feature in project.features'>
+          {{ feature.value }}
+        </li>
+      </ul>
+    </div>
+    <div class='pure-u-1-2'>
+      <!-- project technologies -->
+      <h3 class='project-info-header'>Technologies used</h3>
+      <div class='project-technologies'>
+        <a class='pure-button pure-button-tech' target='_blank' href='{{ tech.link }}' ng-repeat='tech in project.technologies'>{{ tech.name }}</a>
+      </div>
+    </div>
   </div>
 </div>
 

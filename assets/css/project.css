@@ -20,15 +20,18 @@
 }
 .project-view .project-desc {
   padding: 2px;
-  font-size: 1.2em;
+  font-size: 0.75em;
   font-weight: 300;
+  margin-left: 10px;
 }
 .project-view {
   padding: 0 16%;
+  text-align: left;
 }
 
 .project-links {
   font-size: 1.2em;
+  text-align: center;
 }
 .project-link {
   padding: 10px 10px;
