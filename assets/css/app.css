@@ -18,7 +18,6 @@ body {
   min-height: 100%;
   text-align: center;
   margin-bottom: 20px;
-  box-shadow: 0 0 10px;
   border-radius: 3px;
 }
 .center-color {
@@ -125,8 +124,6 @@ input:focus, textarea:focus {
 .flipper {
   position: absolute;
   width: 100%;
-  box-shadow: 0 0 10px;
-  z-index: -1;
 }
 .backdrop {
   -webkit-perspective: 1200px;
