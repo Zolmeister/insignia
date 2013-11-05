@@ -1,191 +1,32 @@
-/* push left */
- .flip_right.flipper.ng-leave-active {
-  -webkit-transform-origin: 0% 50%;
-  -webkit-animation: rotatePushLeft .8s both ease;
-  -moz-transform-origin: 0% 50%;
-  -moz-animation: rotatePushLeft .8s both ease;
-  transform-origin: 0% 50%;
-  animation: rotatePushLeft .8s both ease;
+.flipper.ng-enter,
+.flipper.ng-leave {
+  -webkit-transition:.5s ease-in opacity;
+  -moz-transition:.5s ease-in opacity;
+  -o-transition:.5s ease-in opacity;
+  transition:.5s ease-in opacity;
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
 }
-/* pull right */
- .flip_right.flipper.ng-enter-active {
-  -webkit-transform-origin: 100% 50%;
-  -webkit-animation: rotatePullRight .5s both ease;
-  -moz-transform-origin: 100% 50%;
-  -moz-animation: rotatePullRight .5s both ease;
-  transform-origin: 100% 50%;
-  animation: rotatePullRight .5s both ease;
+.flipper.ng-leave {
+  -webkit-transition-delay:0.2s;
 }
-/* push right */
- .flip_left.flipper.ng-leave-active {
-  -webkit-transform-origin: 100% 50%;
-  -webkit-animation: rotatePushRight .8s both ease;
-  -moz-transform-origin: 100% 50%;
-  -moz-animation: rotatePushRight .8s both ease;
-  transform-origin: 100% 50%;
-  animation: rotatePushRight .8s both ease;
+.flipper.ng-enter,
+.flipper.ng-leave.ng-leave-active {
+  opacity:0;
 }
-/* pull left */
- .flip_left.flipper.ng-enter-active {
-  -webkit-transform-origin: 0% 50%;
-  -webkit-animation: rotatePullLeft .5s both ease;
-  -moz-transform-origin: 0% 50%;
-  -moz-animation: rotatePullLeft .5s both ease;
-  transform-origin: 0% 50%;
-  animation: rotatePullLeft .5s both ease;
-}
-
-/* pull */
- @-webkit-keyframes rotatePullRight {
-  from {
-    opacity: 0;
-    -webkit-transform: rotateY(-90deg);
-  }
-}
-@-moz-keyframes rotatePullRight {
-  from {
-    opacity: 0;
-    -moz-transform: rotateY(-90deg);
-  }
-}
-@keyframes rotatePullRight {
-  from {
-    opacity: 0;
-    transform: rotateY(-90deg);
-  }
-}
-@-webkit-keyframes rotatePullLeft {
-  from {
-    opacity: 0;
-    -webkit-transform: rotateY(90deg);
-  }
-}
-@-moz-keyframes rotatePullLeft {
-  from {
-    opacity: 0;
-    -moz-transform: rotateY(90deg);
-  }
-}
-@keyframes rotatePullLeft {
-  from {
-    opacity: 0;
-    transform: rotateY(90deg);
-  }
-}
-@-webkit-keyframes rotatePullTop {
-  from {
-    opacity: 0;
-    -webkit-transform: rotateX(-90deg);
-  }
-}
-@-moz-keyframes rotatePullTop {
-  from {
-    opacity: 0;
-    -moz-transform: rotateX(-90deg);
-  }
-}
-@keyframes rotatePullTop {
-  from {
-    opacity: 0;
-    transform: rotateX(-90deg);
-  }
-}
-@-webkit-keyframes rotatePullBottom {
-  from {
-    opacity: 0;
-    -webkit-transform: rotateX(90deg);
-  }
-}
-@-moz-keyframes rotatePullBottom {
-  from {
-    opacity: 0;
-    -moz-transform: rotateX(90deg);
-  }
-}
-@keyframes rotatePullBottom {
-  from {
-    opacity: 0;
-    transform: rotateX(90deg);
-  }
-}
-/* push */
- @-webkit-keyframes rotatePushLeft {
-  to {
-    opacity: 0;
-    -webkit-transform: rotateY(90deg);
-  }
-}
-@-moz-keyframes rotatePushLeft {
-  to {
-    opacity: 0;
-    -moz-transform: rotateY(90deg);
-  }
-}
-@keyframes rotatePushLeft {
-  to {
-    opacity: 0;
-    transform: rotateY(90deg);
-  }
-}
-@-webkit-keyframes rotatePushRight {
-  to {
-    opacity: 0;
-    -webkit-transform: rotateY(-90deg);
-  }
-}
-@-moz-keyframes rotatePushRight {
-  to {
-    opacity: 0;
-    -moz-transform: rotateY(-90deg);
-  }
-}
-@keyframes rotatePushRight {
-  to {
-    opacity: 0;
-    transform: rotateY(-90deg);
-  }
-}
-@-webkit-keyframes rotatePushTop {
-  to {
-    opacity: 0;
-    -webkit-transform: rotateX(-90deg);
-  }
-}
-@-moz-keyframes rotatePushTop {
-  to {
-    opacity: 0;
-    -moz-transform: rotateX(-90deg);
-  }
-}
-@keyframes rotatePushTop {
-  to {
-    opacity: 0;
-    transform: rotateX(-90deg);
-  }
-}
-@-webkit-keyframes rotatePushBottom {
-  to {
-    opacity: 0;
-    -webkit-transform: rotateX(90deg);
-  }
-}
-@-moz-keyframes rotatePushBottom {
-  to {
-    opacity: 0;
-    -moz-transform: rotateX(90deg);
-  }
-}
-@keyframes rotatePushBottom {
-  to {
-    opacity: 0;
-    transform: rotateX(90deg);
-  }
+.flipper.ng-leave,
+.flipper.ng-enter.ng-enter-active {
+  opacity:1;
 }
 /* app css stylesheet */
 
+::-moz-selection { background: #5af; color: #fff; text-shadow: none; }
+::selection { background: #5af; color: #fff; text-shadow: none; }
+
 /* background */
 body {
-  background: #2980b9;
+  background: #222;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
 }
@@ -198,6 +39,8 @@ body {
   min-height: 100%;
   text-align: center;
   margin-bottom: 20px;
+  box-shadow: 0 0 10px;
+  border-radius: 3px;
 }
 .center-color {
   background: #ecf0f1;
@@ -217,8 +60,6 @@ input:focus, textarea:focus {
   border-color: #2980b9;
 }
 
-
-
 .pure-button-remove {
   background: #e74c3c;
   color: #ecf0f1;
@@ -229,6 +70,10 @@ input:focus, textarea:focus {
 }
 
 /* title bar */
+.menu {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
 .menu-save-button-container {
   margin-bottom: 10px;
 }
@@ -239,7 +84,9 @@ input:focus, textarea:focus {
   background: #27ae60;
 }
 .title {
-  font-size: 3em;
+  font-size: 4em;
+  text-shadow: 1px 2px 4px #ecf0f1, 0 0 0 #000, 1px 2px 4px #ecf0f1;
+  color: rgba(34,34,34, 0.8);
   margin-bottom: 0;
 }
 .editing .title {
@@ -252,10 +99,12 @@ input:focus, textarea:focus {
   position: absolute;
   top: 0;
   left: 0;
+  border-top-left-radius: 2px;
 }
 .name {
-  margin: 10px auto;  
-  font-weight: 300;
+  margin: 0px 10px;  
+  font-weight: 400;
+  display: inline-block;
 }
 .editing .name {
   margin: 10px auto;
@@ -295,8 +144,10 @@ input:focus, textarea:focus {
 
 /* base project animation */
 .flipper {
-    position: absolute;
-    width: 100%;
+  position: absolute;
+  width: 100%;
+  box-shadow: 0 0 10px;
+  z-index: -1;
 }
 .backdrop {
   -webkit-perspective: 1200px;
@@ -312,9 +163,11 @@ input:focus, textarea:focus {
   padding: 1%;
 }
 .project, .sortable-placeholder {
-  margin: 10px;
+  margin: 2px;
   position: relative;
   font-family: 'Lato', sans-serif;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  border-radius: 3px;
 }
 .project-image {
   border-radius: 3px;
@@ -338,6 +191,7 @@ input:focus, textarea:focus {
   left: 0;
   width: 100%;
   border-radius:3px;
+  height: 100%;
 }
 
 /* image overlay */
@@ -347,16 +201,18 @@ input:focus, textarea:focus {
   top: 0;
   left: 0;
   border-radius: 3px;
-  background: rgba(230, 126, 34, 0.8);
+  background: rgba(34, 34, 34, 0.8);
   width: 100%;
   height: 100%;
-  transition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s ease-in;
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transition: opacity 0.5s ease-in;
+  -moz-transform: translate3d(0,0,0);
+  transition: opacity 0.5s ease-in;
+  transform: translate3d(0,0,0);
   text-align: left;
   color: #ecf0f1;
   cursor: pointer;
-}
-.projects-featured .overlay {
-  background: rgba(192, 57, 43, 0.8);
 }
 .overlay .project-title {
   font-size: 4em;
@@ -373,14 +229,12 @@ input:focus, textarea:focus {
 }
 .overlay:hover, .overlay:active {
   opacity: 1;
-  transition: opacity 0.5s;
 }
 @media all and (max-width: 780px) {
   .overlay {
     font-size: 0.9em;
   }
   .project {
-    margin: 2px;
     font-size: 0.8em;
   }
 }
@@ -401,7 +255,7 @@ input:focus, textarea:focus {
 /* non-image projects */
 .projects-other .project, .projects-other .sortable-placeholder {
   padding: 10px;
-  background: #27ae60;
+  background: #0b4297;
   color: #ecf0f1;
   border-radius: 3px;
   text-align: left;
@@ -412,7 +266,7 @@ input:focus, textarea:focus {
   font-size: 1.5em;
 }
 .projects-other .project:hover {
-  background: #2ecc71;
+  background: #0D54C0;
   transition: background 0.5s;
 }
 
@@ -491,15 +345,18 @@ input:focus, textarea:focus {
 }
 .project-view .project-desc {
   padding: 2px;
-  font-size: 1.2em;
+  font-size: 0.75em;
   font-weight: 300;
+  margin-left: 10px;
 }
 .project-view {
   padding: 0 16%;
+  text-align: left;
 }
 
 .project-links {
   font-size: 1.2em;
+  text-align: center;
 }
 .project-link {
   padding: 10px 10px;
