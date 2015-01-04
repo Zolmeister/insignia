@@ -1,4 +1,4 @@
-BLOG_ROOT = "#{BLOG_ROOT}"
+BLOG_ROOT = 'http://zolmeister.com'
 
 module.exports = [
   {
