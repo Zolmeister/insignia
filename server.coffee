@@ -32,8 +32,8 @@ dust.loadSource indexTpl
 app.use compress()
 
 if config.ENV is config.ENVS.PROD
-then app.use express['static'](__dirname + '/dist')
-else app.use express['static'](__dirname + '/build')
+then app.use express['static'](__dirname + '/dist', {maxage: '14 days'})
+else app.use express['static'](__dirname + '/build', {maxage: '14 days'})
 
 # After checking static files
 app.use router
