@@ -1,0 +1,55 @@
+@require '../../bower_components/nib/index.styl'
+@require '../../bower_components/normalize.css/normalize.css'
+
+json('./vars.json')
+
+@font-face
+  font-family: 'Roboto'
+  font-style: normal
+  font-weight: 400
+  src: local('Roboto Regular'), local('Roboto-Regular'),
+       url('//cdn.wtf/d/fonts/roboto/regular.ttf') format("opentype")
+
+@font-face
+  font-family: 'Roboto'
+  font-style: normal
+  font-weight: 700
+  src: local('Roboto Bold'), local('Roboto-Bold'),
+       url('//cdn.wtf/d/fonts/roboto/bold.ttf') format("opentype")
+
+@font-face
+  font-family: 'Roboto'
+  font-style: normal
+  font-weight: 500
+  src: local('Roboto Medium'), local('Roboto-Medium'),
+       url('//cdn.wtf/d/fonts/roboto/medium.ttf') format("opentype")
+
+@require './layout.styl'
+
+//
+// Base Styles
+//
+
+html
+  font-size: 62.5% /* 10px browser default */
+
+body
+  background: $grey200
+  color: $black87
+
+a
+  text-decoration: none
+  color: $black54
+  -webkit-tap-highlight-color: $transparent
+
+h1
+  font-size: $fontSizeHeadline
+
+h2
+  font-size: $fontSizeSubhead
+
+button
+  border: none
+  outline: none
+  appearance: none
+  -webkit-tap-highlight-color: $transparent

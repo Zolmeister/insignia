@@ -1,0 +1,22 @@
+{
+  "$transparent": "transparent",
+  "$white": "#FFFFFF",
+  "$grey200": "#EEEEEE",
+  "$blue700": "#1976D2",
+
+  "$black87": "rgba(0, 0, 0, .87)",
+  "$black12": "rgba(0, 0, 0, .12)",
+  "$white30": "rgba(255, 255, 255, .30)",
+  "$white12": "rgba(255, 255, 255, .12)",
+
+  "$z1Shadow": "0 2px 5px 0 rgba(0, 0, 0, 0.26)",
+  "$z2Shadow": "0 8px 17px rgba(0, 0, 0, 0.2)",
+  "$z3Shadow": "0 17px 50px rgba(0, 0, 0, 0.19)",
+  "$z4Shadow": "0 16px 28px 0 rgba(0, 0, 0, 0.22)",
+  "$z5Shadow": "0 27px 24px 0 rgba(0, 0, 0, 0.2)",
+
+  "$fontHeadline": "2.4rem Roboto",
+  "$fontSubhead": "1.6rem/1.7rem Roboto",
+  "$fontTitle": "500 2.0rem Roboto",
+  "$fontBody1": "1.4rem/1.5rem Roboto"
+}

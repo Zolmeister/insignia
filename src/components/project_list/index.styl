@@ -1,0 +1,43 @@
+@require 'nib'
+
+json('../../stylus/vars.json')
+
+.z-project-list
+  padding: 8px
+
+  > .project
+    display: inline-block
+    margin: 0 8px 8px 0
+    width: 95.9%
+
+@media (min-width: 490px)
+  .z-project-list
+    > .project
+      width: 45%
+
+@media (min-width: 1000px)
+  .z-project-list
+    > .project
+      width: 31%
+
+@media (min-width: 1800px)
+  .z-project-list
+    > .project
+      width: 24%
+
+@media (min-width: 2500px)
+  .z-project-list
+    > .project
+      width: 19%
+
+.z-project-list-action
+  display: inline-block
+  height: 48px
+  padding: 0 20px
+  font-size: 24px
+  line-height: 48px
+  text-align: center
+  color: $white
+
+  > .inactive
+    color: $white30

@@ -1,0 +1,42 @@
+@require 'nib'
+
+json('../../stylus/vars.json')
+
+.z-card
+  border-radius: 2px
+  font: $fontBody1
+  background: $blue700
+  color: $white
+  z-index: 1
+  box-shadow: $z1Shadow
+
+  > .image-container
+    position: relative
+
+    > .image
+      width: 100%
+
+    > .title
+      font: $fontTitle
+      position: absolute
+      bottom: 22px
+      left: 22px
+
+      &.is-dark
+        color: $black87
+
+  > .content
+    position: relative
+    padding: 22px
+
+    > .title
+      font: $fontTitle
+      margin-bottom: 28px
+
+  > .divider
+    height: 1px
+    background: $white12
+
+  > .actions
+    text-align: right
+    padding: 6px 14px

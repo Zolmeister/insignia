@@ -1,0 +1,10 @@
+{
+  "name": "insignia",
+  "homepage": "https://insignia.zolmeister.com",
+  "private": true,
+  "dependencies": {
+    "normalize.css": "3.0.1",
+    "nib": "1.0.3",
+    "fetch": "0.3.0"
+  }
+}
