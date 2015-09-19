@@ -1,4 +1,4 @@
-BLOG_ROOT = 'http://zolmeister.com'
+BLOG_ROOT = 'https://zolmeister.com'
 
 module.exports = [
   {
@@ -6,7 +6,7 @@ module.exports = [
     description: 'An elegant HTML5 multi-platform game'
     blogLink: "#{BLOG_ROOT}/2013/10/the-pond.html"
     gitHubLink: 'https://github.com/Zolmeister/pond'
-    pubLink: 'http://thepond.zolmeister.com'
+    pubLink: 'https://thepond.zolmeister.com'
     image: '/images/the_pond.jpg'
   }
   {
@@ -14,7 +14,7 @@ module.exports = [
     description: 'My personal RSS reader'
     blogLink: "#{BLOG_ROOT}/2013/09/retinus-naive-bayes-machine-learning.html"
     gitHubLink: 'https://github.com/Zolmeister/Retinus'
-    pubLink: 'http://retin.us'
+    pubLink: null
     image: '/images/retinus.jpg'
   }
   {
@@ -22,8 +22,8 @@ module.exports = [
     description: 'A new way to donate to charity'
     blogLink:
       "#{BLOG_ROOT}/2013/04/charityvid-new-way-to-donate-to-charity.html"
-    gitHubLink: null
-    pubLink: 'http://charityvid.org/'
+    gitHubLink: 'https://github.com/Zolmeister/charityvid'
+    pubLink: null
     image: '/images/charityvid.jpg'
     isImageLight: true
   }
@@ -42,7 +42,7 @@ module.exports = [
     blogLink:
       "#{BLOG_ROOT}/2013/08/tanzania-africa-in-175-million-particles.html"
     gitHubLink: 'https://github.com/Zolmeister/tanzania'
-    pubLink: 'http://tanzania.zolmeister.com/full'
+    pubLink: 'https://tanzania.zolmeister.com/full'
     image: '/images/tanzania.jpg'
   }
   {
@@ -50,7 +50,7 @@ module.exports = [
     description: 'This site'
     blogLink: null
     gitHubLink: 'https://github.com/Zolmeister/insignia'
-    pubLink: 'http://insignia.zolmeister.com/#/'
+    pubLink: 'https://zolikahan.com'
     image: '/images/insignia.jpg'
   }
   {
@@ -76,7 +76,7 @@ module.exports = [
     description: 'A unique HTML5 canvas game'
     blogLink: "#{BLOG_ROOT}/2012/11/avabranch.html"
     gitHubLink: 'https://github.com/Zolmeister/avabranch'
-    pubLink: 'http://avabranch.zolmeister.com/'
+    pubLink: 'https://avabranch.zolmeister.com/'
     image: '/images/avabranch.jpg'
     isImageLight: true
   }
@@ -94,7 +94,7 @@ module.exports = [
     description: 'My high-profile XSS'
     blogLink: "#{BLOG_ROOT}/2012/09/my-favorite-exploit.html"
     gitHubLink: null
-    pubLink: 'http://gallery.zolmeister.com'
+    pubLink: 'https://gallery.zolmeister.com'
     image: '/images/xss.jpg'
     isImageLight: true
   }
@@ -120,7 +120,7 @@ module.exports = [
     description: 'A collection of small game experiments'
     blogLink: "#{BLOG_ROOT}/2012/06/javascript-golfing.html"
     gitHubLink: null
-    pubLink: 'http://games.zolmeister.com'
+    pubLink: 'https://games.zolmeister.com'
   }
   {
     title: 'Scrolly'
