@@ -172,9 +172,6 @@ gulp.task 'scripts:prod', ->
   gulp.src paths.root
   .pipe webpack
     module:
-      postLoaders: [
-        { test: /\.coffee$/, loader: 'transform/cacheable?envify' }
-      ]
       loaders: [
         { test: /\.coffee$/, loader: 'coffee' }
         { test: /\.json$/, loader: 'json' }

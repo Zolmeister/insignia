@@ -38,6 +38,9 @@ else app.use express['static'](__dirname + '/build', {maxage: '14 days'})
 # After checking static files
 app.use router
 
+router.get '/ping', (req, res) ->
+  res.end 'pong'
+
 # Routes
 router.get '*', (req, res) ->
   renderHomePage()

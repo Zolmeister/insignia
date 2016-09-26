@@ -1,15 +1,16 @@
-FROM dockerfile/nodejs:latest
+FROM node:6.6.0
 
-# Install Git
-RUN apt-get install -y git
+# npm-shrinkwrap.json, package.json, bower.json
+COPY *.json /tmp/
+RUN mkdir -p /opt/app && \
+    cd /opt/app && \
+    # cp /tmp/npm-shrinkwrap.json . && \
+    cp /tmp/package.json . && \
+    cp /tmp/bower.json . && \
+    npm install --production --unsafe-perm --loglevel warn
 
-# Add source
-ADD ./node_modules /opt/insignia/node_modules
-ADD . /opt/insignia
+COPY . /opt/app
 
-WORKDIR /opt/insignia
-
-# Install app deps
-RUN npm install
+WORKDIR /opt/app
 
 CMD ["npm", "start"]

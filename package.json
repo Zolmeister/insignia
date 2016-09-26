@@ -3,7 +3,7 @@
   "private": true,
   "main": "server.js",
   "scripts": {
-    "postinstall": "node_modules/bower/bin/bower install",
+    "postinstall": "node_modules/bower/bin/bower install --allow-root",
     "test": "NODE_ENV=test node_modules/gulp/bin/gulp.js test",
     "start": "NODE_ENV=production npm run build && NODE_ENV=production ./node_modules/pm2/bin/pm2 start ./bin/server.coffee -i 0 --name insignia --no-daemon -o /tmp/insignia.log -e /tmp/insignia.error.log",
     "dev": "NODE_ENV=development node_modules/gulp/bin/gulp.js dev",
